@@ -44,26 +44,26 @@ type Feature = {
 
 // ── Active features, ordered by demand for artists & creators ─────────────────
 
-/** Core creation tools — highest-traffic first. */
+/** Artists — performance, music, and live-stage tools. */
 const MAKE_FEATURES: Feature[] = [
-  { to: "/studio",        label: "Image Generation", icon: Sparkles,  previewImg: "/nav-previews/studio.jpg" },
-  { to: "/colors",        label: "Colors Studio",    icon: Palette,   previewImg: "/nav-previews/colors.jpg" },
-  { to: "/canvas",        label: "Canvas",           icon: Workflow,  previewImg: "/nav-previews/canvas.jpg" },
-  { to: "/agent",         label: "Video Agent",      icon: Film,      previewImg: "/nav-previews/video-agent.jpg" },
-  { to: "/photo-edit",    label: "Photo Editor",     icon: Brush,     previewImg: "/nav-previews/photo-edit.jpg" },
-  { to: "/live-studio",   label: "Live Studios",     icon: Music2,    previewImg: "/nav-previews/live-studio.jpg" },
-  { to: "/scene-builder", label: "Scene Builder",    icon: Layers,    previewImg: "/nav-previews/scene-builder.jpg" },
+  { to: "/motion",        label: "Motion Control",   icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
+  { to: "/music-video",   label: "Music Video",      icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
+  { to: "/live-studio",   label: "Live Studios",     icon: Music2,       previewImg: "/nav-previews/live-studio.jpg" },
+  { to: "/colors",        label: "Colors Sessions",  icon: Palette,      previewImg: "/nav-previews/colors.jpg" },
+  { to: "/lipsync",       label: "Lip Sync",         icon: Mic,          previewImg: "/nav-previews/lipsync.jpg" },
+  { to: "/scene-builder", label: "Scene Builder",    icon: Layers,       previewImg: "/nav-previews/scene-builder.jpg" },
 ];
 
-/** Creator & viral tools — ordered by demand. */
+/** Creators — UGC, viral, and short-form tools. */
 const VIRAL_FEATURES: Feature[] = [
-  { to: "/lipsync",     label: "Lip Sync",        icon: Mic,          previewImg: "/nav-previews/lipsync.jpg" },
-  { to: "/ugc-line",    label: "Content Line",    icon: Layers,       previewImg: "/nav-previews/ugc-line.jpg" },
-  { to: "/ugc",         label: "UGC Ads",         icon: Megaphone,    previewImg: "/nav-previews/ugc.jpg" },
-  { to: "/spin",        label: "TikTok30",        icon: TikTokIcon,   previewImg: "/nav-previews/spin.jpg", badge: "Premium" },
-  { to: "/motion",      label: "Motion Control",  icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
-  { to: "/music-video", label: "Lyric Video",     icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
-  { to: "/avatar",      label: "Talking Avatars", icon: UserCircle2,  previewImg: "/nav-previews/avatar.jpg" },
+  { to: "/spin",       label: "TikTok30",        icon: TikTokIcon,   previewImg: "/nav-previews/spin.jpg", badge: "Premium" },
+  { to: "/ugc",        label: "UGC Ads",         icon: Megaphone,    previewImg: "/nav-previews/ugc.jpg" },
+  { to: "/ugc-line",   label: "Content Line",    icon: Layers,       previewImg: "/nav-previews/ugc-line.jpg" },
+  { to: "/studio",     label: "Image Generation",icon: Sparkles,     previewImg: "/nav-previews/studio.jpg" },
+  { to: "/photo-edit", label: "Photo Editor",    icon: Brush,        previewImg: "/nav-previews/photo-edit.jpg" },
+  { to: "/avatar",     label: "Talking Avatars", icon: UserCircle2,  previewImg: "/nav-previews/avatar.jpg" },
+  { to: "/canvas",     label: "Canvas",          icon: Workflow,     previewImg: "/nav-previews/canvas.jpg" },
+  { to: "/agent",      label: "Video Agent",     icon: Film,         previewImg: "/nav-previews/video-agent.jpg" },
 ];
 
 /** Account & monetization — affiliate promoted to live. */
