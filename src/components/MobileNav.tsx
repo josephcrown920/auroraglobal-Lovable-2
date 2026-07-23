@@ -48,6 +48,7 @@ type Feature = {
   icon: NavIcon;
   badge?: string;
   previewImg?: string;
+  gold?: boolean;
 };
 
 
