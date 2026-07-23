@@ -74,6 +74,45 @@ export type Database = {
         }
         Relationships: []
       }
+      agent_sessions: {
+        Row: {
+          brief: string
+          created_at: string
+          id: string
+          iterations: Json
+          messages: Json
+          plan: Json
+          status: string
+          title: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          brief?: string
+          created_at?: string
+          id?: string
+          iterations?: Json
+          messages?: Json
+          plan?: Json
+          status?: string
+          title?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          brief?: string
+          created_at?: string
+          id?: string
+          iterations?: Json
+          messages?: Json
+          plan?: Json
+          status?: string
+          title?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       generations: {
         Row: {
           audio_url: string | null
@@ -182,6 +221,153 @@ export type Database = {
         }
         Relationships: []
       }
+      jobs: {
+        Row: {
+          attempts: number
+          created_at: string
+          credits_reserved: number
+          error: string | null
+          finished_at: string | null
+          generation_id: string | null
+          id: string
+          kind: string
+          locked_at: string | null
+          locked_by: string | null
+          max_attempts: number
+          parent_job_id: string | null
+          payload: Json
+          priority: number
+          result: Json | null
+          scheduled_at: string
+          started_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          credits_reserved?: number
+          error?: string | null
+          finished_at?: string | null
+          generation_id?: string | null
+          id?: string
+          kind: string
+          locked_at?: string | null
+          locked_by?: string | null
+          max_attempts?: number
+          parent_job_id?: string | null
+          payload?: Json
+          priority?: number
+          result?: Json | null
+          scheduled_at?: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          credits_reserved?: number
+          error?: string | null
+          finished_at?: string | null
+          generation_id?: string | null
+          id?: string
+          kind?: string
+          locked_at?: string | null
+          locked_by?: string | null
+          max_attempts?: number
+          parent_job_id?: string | null
+          payload?: Json
+          priority?: number
+          result?: Json | null
+          scheduled_at?: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      owner_withdrawals: {
+        Row: {
+          amount_minor: number
+          created_at: string
+          currency: string
+          destination: Json | null
+          id: string
+          processed_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount_minor: number
+          created_at?: string
+          currency?: string
+          destination?: Json | null
+          id?: string
+          processed_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount_minor?: number
+          created_at?: string
+          currency?: string
+          destination?: Json | null
+          id?: string
+          processed_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          amount_kobo: number
+          created_at: string
+          credits_granted: number
+          currency: string
+          id: string
+          provider: string
+          raw: Json | null
+          reference: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount_kobo: number
+          created_at?: string
+          credits_granted?: number
+          currency?: string
+          id?: string
+          provider?: string
+          raw?: Json | null
+          reference: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount_kobo?: number
+          created_at?: string
+          credits_granted?: number
+          currency?: string
+          id?: string
+          provider?: string
+          raw?: Json | null
+          reference?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -218,6 +404,30 @@ export type Database = {
           plan?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      scheduler_heartbeats: {
+        Row: {
+          last_error: string | null
+          last_ok_at: string | null
+          last_run_at: string | null
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          last_error?: string | null
+          last_ok_at?: string | null
+          last_run_at?: string | null
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          last_error?: string | null
+          last_ok_at?: string | null
+          last_run_at?: string | null
+          name?: string
+          updated_at?: string
         }
         Relationships: []
       }
