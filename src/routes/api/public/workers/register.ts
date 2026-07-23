@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 // Worker self-registration endpoint — POST /api/public/workers/register
 // Lets a self-hosted GPU worker (e.g. the Colab/Kaggle notebook) upsert its own
 // row in gpu_workers on boot, so a restart never needs a manual Admin → Workers

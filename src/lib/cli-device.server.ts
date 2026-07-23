@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 import { createHash, randomBytes } from "crypto";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 

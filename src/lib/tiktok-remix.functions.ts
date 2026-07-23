@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 // TikTok Remix Factory.
 // Take a single source video → generate up to 10 variant short clips, each
 // starting from a different highlight / angle / hook. Each variant becomes

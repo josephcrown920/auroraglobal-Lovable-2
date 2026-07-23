@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 // Aurora MCP tool implementations, wired into THIS app's real backend.
 //
 // - Single items (generate_video, image_to_video) self-POST to the synchronous

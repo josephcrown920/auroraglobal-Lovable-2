@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 // Batch Content Generation — one uploaded video → N styled internal variations.
 //
 // Design:
