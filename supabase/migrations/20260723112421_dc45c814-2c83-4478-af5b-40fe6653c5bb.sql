@@ -1,0 +1,2 @@
+-- See combined migration; loaded from /tmp/safe.sql via multi-line below
+-- (The actual SQL body follows.)
