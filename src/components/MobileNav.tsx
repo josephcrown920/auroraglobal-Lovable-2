@@ -48,6 +48,7 @@ type Feature = {
   icon: NavIcon;
   badge?: string;
   previewImg?: string;
+  gold?: boolean;
 };
 
 
@@ -55,6 +56,8 @@ type Feature = {
 
 /** Artists — performance, music, and live-stage tools. */
 const MAKE_FEATURES: Feature[] = [
+  { to: "/canvas",        label: "Canvas",           icon: Workflow,     previewImg: "/nav-previews/canvas.jpg",      gold: true },
+  { to: "/agent",         label: "Video Agent",      icon: Film,         previewImg: "/nav-previews/video-agent.jpg", gold: true },
   { to: "/motion",        label: "Motion Control",   icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
   { to: "/music-video",   label: "Music Video",      icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
   { to: "/storyboard",    label: "Storyboard",       icon: Images,       previewImg: "/nav-previews/storyboard.jpg" },
@@ -72,8 +75,6 @@ const VIRAL_FEATURES: Feature[] = [
   { to: "/studio",     label: "Image Generation",icon: Sparkles,     previewImg: "/nav-previews/studio.jpg" },
   { to: "/photo-edit", label: "Photo Editor",    icon: Brush,        previewImg: "/nav-previews/photo-edit.jpg" },
   { to: "/avatar",     label: "Talking Avatars", icon: UserCircle2,  previewImg: "/nav-previews/avatar.jpg" },
-  { to: "/canvas",     label: "Canvas",          icon: Workflow,     previewImg: "/nav-previews/canvas.jpg" },
-  { to: "/agent",      label: "Video Agent",     icon: Film,         previewImg: "/nav-previews/video-agent.jpg" },
 ];
 
 /** Account & monetization — affiliate promoted to live. */
@@ -157,7 +158,16 @@ function LiveNavItem({ f, active, onClick }: { f: Feature; active: boolean; onCl
       >
         <f.icon className="size-3.5" />
       </span>
-      <span className="font-medium flex-1 min-w-0">{f.label}</span>
+      <span
+        className={cn(
+          "font-medium flex-1 min-w-0",
+          f.gold &&
+            !active &&
+            "bg-gradient-to-r from-[#f6d365] via-[#fbbf24] to-[#b8860b] bg-clip-text text-transparent font-semibold tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.35)]",
+        )}
+      >
+        {f.label}
+      </span>
 
       {/* Preview thumbnail — only for features with a previewImg */}
       {f.previewImg && (
