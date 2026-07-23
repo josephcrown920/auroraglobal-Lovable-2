@@ -158,7 +158,16 @@ function LiveNavItem({ f, active, onClick }: { f: Feature; active: boolean; onCl
       >
         <f.icon className="size-3.5" />
       </span>
-      <span className="font-medium flex-1 min-w-0">{f.label}</span>
+      <span
+        className={cn(
+          "font-medium flex-1 min-w-0",
+          f.gold &&
+            !active &&
+            "bg-gradient-to-r from-[#f6d365] via-[#fbbf24] to-[#b8860b] bg-clip-text text-transparent font-semibold tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.35)]",
+        )}
+      >
+        {f.label}
+      </span>
 
       {/* Preview thumbnail — only for features with a previewImg */}
       {f.previewImg && (
