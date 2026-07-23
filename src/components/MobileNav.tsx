@@ -56,6 +56,8 @@ type Feature = {
 
 /** Artists — performance, music, and live-stage tools. */
 const MAKE_FEATURES: Feature[] = [
+  { to: "/canvas",        label: "Canvas",           icon: Workflow,     previewImg: "/nav-previews/canvas.jpg",      gold: true },
+  { to: "/agent",         label: "Video Agent",      icon: Film,         previewImg: "/nav-previews/video-agent.jpg", gold: true },
   { to: "/motion",        label: "Motion Control",   icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
   { to: "/music-video",   label: "Music Video",      icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
   { to: "/storyboard",    label: "Storyboard",       icon: Images,       previewImg: "/nav-previews/storyboard.jpg" },
@@ -73,8 +75,6 @@ const VIRAL_FEATURES: Feature[] = [
   { to: "/studio",     label: "Image Generation",icon: Sparkles,     previewImg: "/nav-previews/studio.jpg" },
   { to: "/photo-edit", label: "Photo Editor",    icon: Brush,        previewImg: "/nav-previews/photo-edit.jpg" },
   { to: "/avatar",     label: "Talking Avatars", icon: UserCircle2,  previewImg: "/nav-previews/avatar.jpg" },
-  { to: "/canvas",     label: "Canvas",          icon: Workflow,     previewImg: "/nav-previews/canvas.jpg" },
-  { to: "/agent",      label: "Video Agent",     icon: Film,         previewImg: "/nav-previews/video-agent.jpg" },
 ];
 
 /** Account & monetization — affiliate promoted to live. */
