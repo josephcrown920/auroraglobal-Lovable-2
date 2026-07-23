@@ -381,7 +381,7 @@ export function MobileNav() {
             </NavSection>
 
             <NavSection label="Account">
-              {ACCOUNT_FEATURES.map((f) => (
+              {accountFeatures.map((f) => (
                 <LiveNavItem key={f.to} f={f} active={isActive(pathname, f.to)} onClick={() => setOpen(false)} />
               ))}
             </NavSection>
