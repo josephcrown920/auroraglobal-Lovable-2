@@ -57,6 +57,7 @@ type Feature = {
 const MAKE_FEATURES: Feature[] = [
   { to: "/motion",        label: "Motion Control",   icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
   { to: "/music-video",   label: "Music Video",      icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
+  { to: "/storyboard",    label: "Storyboard",       icon: Images,       previewImg: "/nav-previews/storyboard.jpg" },
   { to: "/live-studio",   label: "Live Studios",     icon: Music2,       previewImg: "/nav-previews/live-studio.jpg" },
   { to: "/colors",        label: "Colors Sessions",  icon: Palette,      previewImg: "/nav-previews/colors.jpg" },
   { to: "/lipsync",       label: "Lip Sync",         icon: Mic,          previewImg: "/nav-previews/lipsync.jpg" },

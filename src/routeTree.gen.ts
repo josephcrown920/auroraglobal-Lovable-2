@@ -17,6 +17,7 @@ import { Route as UgcRouteImport } from './routes/ugc'
 import { Route as TiktokRouteImport } from './routes/tiktok'
 import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as StudioRouteImport } from './routes/studio'
+import { Route as StoryboardRouteImport } from './routes/storyboard'
 import { Route as SplitRealityRouteImport } from './routes/split-reality'
 import { Route as SpinRouteImport } from './routes/spin'
 import { Route as SpeechRouteImport } from './routes/speech'
@@ -136,6 +137,11 @@ const StudioRoute = StudioRouteImport.update({
   path: '/studio',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/studio.lazy').then((d) => d.Route))
+const StoryboardRoute = StoryboardRouteImport.update({
+  id: '/storyboard',
+  path: '/storyboard',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/storyboard.lazy').then((d) => d.Route))
 const SplitRealityRoute = SplitRealityRouteImport.update({
   id: '/split-reality',
   path: '/split-reality',
@@ -626,6 +632,7 @@ export interface FileRoutesByFullPath {
   '/speech': typeof SpeechRoute
   '/spin': typeof SpinRoute
   '/split-reality': typeof SplitRealityRoute
+  '/storyboard': typeof StoryboardRoute
   '/studio': typeof StudioRoute
   '/templates': typeof TemplatesRoute
   '/tiktok': typeof TiktokRoute
@@ -718,6 +725,7 @@ export interface FileRoutesByTo {
   '/speech': typeof SpeechRoute
   '/spin': typeof SpinRoute
   '/split-reality': typeof SplitRealityRoute
+  '/storyboard': typeof StoryboardRoute
   '/studio': typeof StudioRoute
   '/templates': typeof TemplatesRoute
   '/tiktok': typeof TiktokRoute
@@ -812,6 +820,7 @@ export interface FileRoutesById {
   '/speech': typeof SpeechRoute
   '/spin': typeof SpinRoute
   '/split-reality': typeof SplitRealityRoute
+  '/storyboard': typeof StoryboardRoute
   '/studio': typeof StudioRoute
   '/templates': typeof TemplatesRoute
   '/tiktok': typeof TiktokRoute
@@ -906,6 +915,7 @@ export interface FileRouteTypes {
     | '/speech'
     | '/spin'
     | '/split-reality'
+    | '/storyboard'
     | '/studio'
     | '/templates'
     | '/tiktok'
@@ -998,6 +1008,7 @@ export interface FileRouteTypes {
     | '/speech'
     | '/spin'
     | '/split-reality'
+    | '/storyboard'
     | '/studio'
     | '/templates'
     | '/tiktok'
@@ -1091,6 +1102,7 @@ export interface FileRouteTypes {
     | '/speech'
     | '/spin'
     | '/split-reality'
+    | '/storyboard'
     | '/studio'
     | '/templates'
     | '/tiktok'
@@ -1185,6 +1197,7 @@ export interface RootRouteChildren {
   SpeechRoute: typeof SpeechRoute
   SpinRoute: typeof SpinRoute
   SplitRealityRoute: typeof SplitRealityRoute
+  StoryboardRoute: typeof StoryboardRoute
   StudioRoute: typeof StudioRoute
   TemplatesRoute: typeof TemplatesRoute
   TiktokRoute: typeof TiktokRoute
@@ -1271,6 +1284,13 @@ declare module '@tanstack/react-router' {
       path: '/studio'
       fullPath: '/studio'
       preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/storyboard': {
+      id: '/storyboard'
+      path: '/storyboard'
+      fullPath: '/storyboard'
+      preLoaderRoute: typeof StoryboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/split-reality': {
@@ -1946,6 +1966,7 @@ const rootRouteChildren: RootRouteChildren = {
   SpeechRoute: SpeechRoute,
   SpinRoute: SpinRoute,
   SplitRealityRoute: SplitRealityRoute,
+  StoryboardRoute: StoryboardRoute,
   StudioRoute: StudioRoute,
   TemplatesRoute: TemplatesRoute,
   TiktokRoute: TiktokRoute,

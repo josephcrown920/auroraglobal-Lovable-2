@@ -958,7 +958,7 @@ function AgentPage() {
             <SidebarSection title="Scene Assets">
               {SCENE_TOOLS.map((t) => <SidebarItem key={t.label} icon={t.icon} label={t.label} onClick={() => launch(t.prompt)} />)}
             </SidebarSection>
-            <SidebarSection title="Aurora Skills">
+            <SidebarSection title="Aurora Skills" defaultOpen>
               {AURORA_SKILL_TOOLS.map((t) => <SidebarItem key={t.label} icon={t.icon} label={t.label} onClick={() => launch(t.prompt)} accent />)}
             </SidebarSection>
           </nav>
@@ -1349,11 +1349,29 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
   );
 }
 
-function SidebarSection({ title, children }: { title: string; children: React.ReactNode }) {
+function SidebarSection({
+  title,
+  children,
+  defaultOpen = false,
+}: {
+  title: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="mb-4">
-      <div className="mb-1 px-3 text-xs font-bold uppercase tracking-[0.25em] text-ink-dim">{title}</div>
-      <div className="space-y-0.5">{children}</div>
+    <div className="mb-2">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between px-3 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-ink-dim transition-colors hover:text-ink"
+        aria-expanded={open}
+      >
+        <span>{title}</span>
+        <ChevronDown
+          className={"size-3 transition-transform " + (open ? "rotate-180" : "")}
+        />
+      </button>
+      {open && <div className="mt-1 space-y-0.5">{children}</div>}
     </div>
   );
 }
