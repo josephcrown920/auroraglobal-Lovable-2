@@ -12,7 +12,7 @@ import {
 
 
 import appCss from "../styles.css?url";
-import auroraLogo from "@/assets/aurora-logo.png.asset.json";
+import auroraLogo from "@/assets/aurora-app-icon.png.asset.json";
 import { Toaster } from "@/components/ui/sonner";
 import { usePageViewTracking } from "@/hooks/use-tracking";
 import { lazy, Suspense, useEffect, useState } from "react";
