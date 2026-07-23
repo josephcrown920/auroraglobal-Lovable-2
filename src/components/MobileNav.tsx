@@ -30,6 +30,15 @@ import auroraLogo from "@/assets/aurora-app-icon.png.asset.json";
 import { useTheme } from "@/lib/theme-context";
 import { WhatsNew } from "@/components/WhatsNew";
 import { TikTokIcon } from "@/components/share/social-icons";
+import { useAuth } from "@/hooks/use-auth";
+
+// Owner-only admin allowlist. Customers never see the Admin entry.
+const ADMIN_EMAILS = new Set([
+  "josephcrown920@gmail.com",
+  "outthemudrecordsltd@gmail.com",
+]);
+const isAdminEmail = (email?: string | null) =>
+  !!email && ADMIN_EMAILS.has(email.trim().toLowerCase());
 
 type NavIcon = ComponentType<SVGProps<SVGSVGElement> & { className?: string }>;
 
