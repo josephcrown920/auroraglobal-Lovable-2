@@ -56,15 +56,15 @@ type Feature = {
 
 /** Artists — performance, music, and live-stage tools. */
 const MAKE_FEATURES: Feature[] = [
-  { to: "/canvas",        label: "Canvas",           icon: Workflow,     previewImg: "/nav-previews/canvas.jpg",      gold: true },
-  { to: "/agent",         label: "Video Agent",      icon: Film,         previewImg: "/nav-previews/video-agent.jpg", gold: true },
-  { to: "/motion",        label: "Motion Control",   icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
-  { to: "/music-video",   label: "Music Video",      icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
-  { to: "/storyboard",    label: "Storyboard",       icon: Images,       previewImg: "/nav-previews/storyboard.jpg" },
-  { to: "/live-studio",   label: "Live Studios",     icon: Music2,       previewImg: "/nav-previews/live-studio.jpg" },
-  { to: "/colors",        label: "Colors Sessions",  icon: Palette,      previewImg: "/nav-previews/colors.jpg" },
-  { to: "/lipsync",       label: "Lip Sync",         icon: Mic,          previewImg: "/nav-previews/lipsync.jpg" },
-  { to: "/scene-builder", label: "Scene Builder",    icon: Layers,       previewImg: "/nav-previews/scene-builder.jpg" },
+  { to: "/canvas",        label: "Infinity Canvas",              icon: Workflow,     previewImg: "/nav-previews/canvas.jpg",           gold: true },
+  { to: "/orchestrate",   label: "Perform Anywhere",             icon: Film,         previewImg: "/nav-previews/perform-anywhere.jpg", gold: true },
+  { to: "/colors",        label: "Colors Performance Sessions",  icon: Palette,      previewImg: "/nav-previews/colors.jpg",           gold: true },
+  { to: "/motion",        label: "Motion Control",               icon: Wand2,        previewImg: "/nav-previews/perform-anywhere.jpg" },
+  { to: "/music-video",   label: "Music Video",                  icon: Clapperboard, previewImg: "/nav-previews/music-video.jpg" },
+  { to: "/storyboard",    label: "Storyboard",                   icon: Images,       previewImg: "/nav-previews/storyboard.jpg" },
+  { to: "/live-studio",   label: "Live Studios",                 icon: Music2,       previewImg: "/nav-previews/live-studio.jpg" },
+  { to: "/lipsync",       label: "Lip Sync",                     icon: Mic,          previewImg: "/nav-previews/lipsync.jpg" },
+  { to: "/scene-builder", label: "Scene Builder",                icon: Layers,       previewImg: "/nav-previews/scene-builder.jpg" },
 ];
 
 /** Creators — UGC, viral, and short-form tools. */
