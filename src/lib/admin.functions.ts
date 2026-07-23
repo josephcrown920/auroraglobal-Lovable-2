@@ -1,10 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-// Cast to any: generated Supabase types are stale for payments/jobs/grant_credits
-// and some columns on affiliate_events/user_webhooks. Runtime schema is correct.
-import { supabaseAdmin as _supabaseAdmin } from "@/integrations/supabase/client.server";
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const supabaseAdmin: any = _supabaseAdmin;
+import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { GENERATION_SUCCESS_STATUSES, aggregateByDayKind, bucketEarningsSeries } from "./cost-stats";
 import { computeProfitSplit, PROFIT_SPLIT_PCT, CREDIT_FUNDING_PCT } from "@/lib/profit-split";
 import { z } from "zod";
