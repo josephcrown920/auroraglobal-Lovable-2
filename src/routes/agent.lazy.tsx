@@ -958,7 +958,7 @@ function AgentPage() {
             <SidebarSection title="Scene Assets">
               {SCENE_TOOLS.map((t) => <SidebarItem key={t.label} icon={t.icon} label={t.label} onClick={() => launch(t.prompt)} />)}
             </SidebarSection>
-            <SidebarSection title="Aurora Skills">
+            <SidebarSection title="Aurora Skills" defaultOpen>
               {AURORA_SKILL_TOOLS.map((t) => <SidebarItem key={t.label} icon={t.icon} label={t.label} onClick={() => launch(t.prompt)} accent />)}
             </SidebarSection>
           </nav>
