@@ -182,6 +182,12 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const { theme, toggle } = useTheme();
+  const { user } = useAuth();
+  const showAdmin = isAdminEmail(user?.email);
+
+  const accountFeatures = showAdmin
+    ? ACCOUNT_FEATURES
+    : ACCOUNT_FEATURES.filter((f) => f.to !== "/admin");
 
   const allFeatures = [...LIVE_FEATURES, ...ARCHIVED_FEATURES];
   const activeFeature = allFeatures.find((f) => isActive(pathname, f.to));
