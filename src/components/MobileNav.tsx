@@ -116,9 +116,9 @@ export const ARCHIVED_FEATURES: Feature[] = [
 
 // Bottom tab — full-name flagship trio. "Premium" badge highlights the paid tier.
 const TAB_ITEMS: (Feature & { premium?: boolean })[] = [
-  { to: "/orchestrate", label: "Perform Anywhere",            icon: Film,       premium: true },
-  { to: "/colors",      label: "Colors Performance Sessions", icon: Palette,    premium: true },
-  { to: "/spin",        label: "TikTok30",                    icon: TikTokIcon, premium: true },
+  { to: "/canvas", label: "Infinity Canvas", icon: Workflow,   premium: true },
+  { to: "/agent",  label: "Video Agent",     icon: Film,       premium: true },
+  { to: "/spin",   label: "TikTok30",        icon: TikTokIcon, premium: true },
 ];
 
 
