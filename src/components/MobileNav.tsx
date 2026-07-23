@@ -26,7 +26,7 @@ import {
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import auroraLogo from "@/assets/aurora-logo.png.asset.json";
+import auroraLogo from "@/assets/aurora-app-icon.png.asset.json";
 import { useTheme } from "@/lib/theme-context";
 import { WhatsNew } from "@/components/WhatsNew";
 import { TikTokIcon } from "@/components/share/social-icons";
