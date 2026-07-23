@@ -1,6 +1,8 @@
-# Aurora Studio
+# AURORA PERFORMANCE STUDIO
 
 AI performance shots, music-video stills, lip-sync clips and UGC ads — generated from a single selfie. Aurora bundles Seedance 2.0, Kling 3.0, Nano Banana Pro, Seedream 4.5 and Sync 1.9 lip-sync into a unified credit-based studio with a node-based canvas, agent, and trending workflows.
+
+> **UI is locked.** See [`ui.md`](./ui.md) for the pinned UI spec and [`snapshot.md`](./snapshot.md) for the porting checklist to the Replit master repo. The sidebar is split into **Artists** (top) and **Creators** (bottom); the floating Menu button sits below the top nav so it never covers the wordmark; the **Admin** entry is visible only to `josephcrown920@gmail.com` and `outthemudrecordsltd@gmail.com` (see `ADMIN_EMAILS` in `src/components/MobileNav.tsx`). Server-side `/admin` routes must still enforce `has_role('admin')`.
 
 ## Stack
 
