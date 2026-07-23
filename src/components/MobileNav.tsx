@@ -30,6 +30,15 @@ import auroraLogo from "@/assets/aurora-app-icon.png.asset.json";
 import { useTheme } from "@/lib/theme-context";
 import { WhatsNew } from "@/components/WhatsNew";
 import { TikTokIcon } from "@/components/share/social-icons";
+import { useAuth } from "@/hooks/use-auth";
+
+// Owner-only admin allowlist. Customers never see the Admin entry.
+const ADMIN_EMAILS = new Set([
+  "josephcrown920@gmail.com",
+  "outthemudrecordsltd@gmail.com",
+]);
+const isAdminEmail = (email?: string | null) =>
+  !!email && ADMIN_EMAILS.has(email.trim().toLowerCase());
 
 type NavIcon = ComponentType<SVGProps<SVGSVGElement> & { className?: string }>;
 
@@ -173,6 +182,12 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const { theme, toggle } = useTheme();
+  const { user } = useAuth();
+  const showAdmin = isAdminEmail(user?.email);
+
+  const accountFeatures = showAdmin
+    ? ACCOUNT_FEATURES
+    : ACCOUNT_FEATURES.filter((f) => f.to !== "/admin");
 
   const allFeatures = [...LIVE_FEATURES, ...ARCHIVED_FEATURES];
   const activeFeature = allFeatures.find((f) => isActive(pathname, f.to));
@@ -220,8 +235,9 @@ export function MobileNav() {
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-label="Open navigation menu"
+        style={{ top: "calc(env(safe-area-inset-top, 0px) + 4.25rem)" }}
         className={cn(
-          "phone-edge-left fixed top-3 z-[60] flex items-center gap-1.5 rounded-full aurora-glass-strong px-3.5 py-2 text-xs font-medium shadow-[var(--shadow-soft)] transition-[filter,color] hover:brightness-110",
+          "phone-edge-left fixed z-[60] flex items-center gap-1.5 rounded-full aurora-glass-strong px-3.5 py-2 text-xs font-medium shadow-[var(--shadow-soft)] transition-[filter,color] hover:brightness-110",
           moreActive ? "text-primary" : "text-foreground",
         )}
       >
@@ -365,7 +381,7 @@ export function MobileNav() {
             </NavSection>
 
             <NavSection label="Account">
-              {ACCOUNT_FEATURES.map((f) => (
+              {accountFeatures.map((f) => (
                 <LiveNavItem key={f.to} f={f} active={isActive(pathname, f.to)} onClick={() => setOpen(false)} />
               ))}
             </NavSection>
