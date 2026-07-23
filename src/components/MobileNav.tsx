@@ -352,13 +352,13 @@ export function MobileNav() {
           {/* ── Nav body ────────────────────────────────────────────────── */}
           <nav aria-label="All features" className="relative flex flex-1 flex-col gap-3 overflow-y-auto p-3 pb-4">
 
-            <NavSection label="Make">
+            <NavSection label="Artists">
               {MAKE_FEATURES.map((f) => (
                 <LiveNavItem key={f.to} f={f} active={isActive(pathname, f.to)} onClick={() => setOpen(false)} />
               ))}
             </NavSection>
 
-            <NavSection label="Go Viral">
+            <NavSection label="Creators">
               {VIRAL_FEATURES.map((f) => (
                 <LiveNavItem key={f.to} f={f} active={isActive(pathname, f.to)} onClick={() => setOpen(false)} />
               ))}
