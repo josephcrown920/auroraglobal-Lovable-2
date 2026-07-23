@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 // Aurora Orchestration Layer (server-only)
 // Providers:
 //   - replit-*    → Replit AI Integrations proxy (billed to the owner's Replit

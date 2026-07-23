@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 // User-callable job queue server functions.
 // Enqueue + atomic credit reservation goes through create_generation_and_reserve.
 

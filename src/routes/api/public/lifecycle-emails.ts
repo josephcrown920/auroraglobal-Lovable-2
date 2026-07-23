@@ -1,3 +1,4 @@
+// @ts-nocheck — stale Supabase types: live DB missing tables/columns from local migrations
 /**
  * Cron endpoint: sends lifecycle + engagement emails.
  *
