@@ -235,8 +235,9 @@ export function MobileNav() {
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-label="Open navigation menu"
+        style={{ top: "calc(env(safe-area-inset-top, 0px) + 4.25rem)" }}
         className={cn(
-          "phone-edge-left fixed top-3 z-[60] flex items-center gap-1.5 rounded-full aurora-glass-strong px-3.5 py-2 text-xs font-medium shadow-[var(--shadow-soft)] transition-[filter,color] hover:brightness-110",
+          "phone-edge-left fixed z-[60] flex items-center gap-1.5 rounded-full aurora-glass-strong px-3.5 py-2 text-xs font-medium shadow-[var(--shadow-soft)] transition-[filter,color] hover:brightness-110",
           moreActive ? "text-primary" : "text-foreground",
         )}
       >
