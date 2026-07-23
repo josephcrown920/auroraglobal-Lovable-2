@@ -151,7 +151,10 @@ function LandingPage() {
         <div className="grid h-14 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 sm:flex sm:justify-between">
           <div className="flex min-w-0 items-center gap-2">
             <span className="inline-block size-2 shrink-0 rounded-full bg-brand" />
-            <span className="truncate text-sm font-display font-bold text-premium">AURORA Performance Studio</span>
+            <span className="truncate text-[11px] sm:text-sm font-display font-bold uppercase tracking-[0.18em] text-premium">
+              <span className="sm:hidden">AURORA</span>
+              <span className="hidden sm:inline">AURORA PERFORMANCE STUDIO</span>
+            </span>
           </div>
 
           <div className="flex shrink-0 items-center gap-3">
