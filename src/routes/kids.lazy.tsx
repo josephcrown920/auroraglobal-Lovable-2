@@ -93,7 +93,7 @@ function MiniUpload({
     >
       <div className="relative size-16 shrink-0 rounded-lg overflow-hidden bg-background/60 flex items-center justify-center">
         {value ? (
-          <img src={value} alt={label} className="size-full object-cover" />
+          <img loading="lazy" src={value} alt={label} className="size-full object-cover" />
         ) : busy ? (
           <Loader2 className="size-5 animate-spin text-muted-foreground" />
         ) : (
@@ -394,7 +394,7 @@ function KidsPage() {
       <header className="relative z-10 flex items-center justify-between px-6 md:px-10 py-4 border-b border-border bg-background/80 backdrop-blur-xl">
         <Link to="/studio" className="flex items-center gap-2 font-semibold tracking-tight">
           <ArrowLeft className="size-4 text-muted-foreground" />
-          <img src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
+          <img loading="lazy" src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
           Kids Story Studio
         </Link>
         <div className="flex items-center gap-3 text-sm">
@@ -563,7 +563,7 @@ function KidsPage() {
                     >
                       <div className="size-10 rounded-lg overflow-hidden bg-background/60 shrink-0">
                         {a.previewUrl && (
-                          <img src={a.previewUrl} alt={a.name} className="size-full object-cover" />
+                          <img loading="lazy" src={a.previewUrl} alt={a.name} className="size-full object-cover" />
                         )}
                       </div>
                       <span className="text-sm truncate">{a.name}</span>
@@ -761,7 +761,7 @@ function KidsPage() {
                       title={s.error ?? s.status}
                     >
                       {s.imageUrl ? (
-                        <img src={s.imageUrl} alt={`scene ${i + 1}`} className="size-full object-cover" />
+                        <img loading="lazy" src={s.imageUrl} alt={`scene ${i + 1}`} className="size-full object-cover" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           {s.error ? (
@@ -821,7 +821,7 @@ function KidsPage() {
                     className="group relative aspect-[9/16] rounded-lg overflow-hidden border border-border bg-background/40 text-left"
                   >
                     {h.posterUrl ? (
-                      <img src={h.posterUrl} alt={h.title ?? "story"} className="size-full object-cover" />
+                      <img loading="lazy" src={h.posterUrl} alt={h.title ?? "story"} className="size-full object-cover" />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
                         <BookOpen className="size-5 text-primary/40" />

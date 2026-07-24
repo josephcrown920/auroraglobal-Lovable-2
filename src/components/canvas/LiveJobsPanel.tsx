@@ -220,7 +220,7 @@ export function LiveJobsPanel() {
                   <li key={j.id} className="flex gap-2 p-2.5 items-start hover:bg-white/[0.03] group">
                     <div className="size-10 shrink-0 rounded-md bg-white/5 overflow-hidden flex items-center justify-center">
                       {thumb ? (
-                        <img src={thumb} alt="" className="size-full object-cover" />
+                        <img loading="lazy" src={thumb} alt="" className="size-full object-cover" />
                       ) : videoThumb ? (
                         <AutoplayVideo src={videoThumb} className="size-full object-cover" autoPlay={false} />
                       ) : (

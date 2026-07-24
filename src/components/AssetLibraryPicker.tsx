@@ -144,7 +144,7 @@ export function AssetLibraryPicker({
               onClick={() => onSelect(a.image_url, a.title)}
               className="group relative rounded-lg overflow-hidden border border-border/40 hover:border-primary transition"
             >
-              <img src={a.image_url} alt={a.title} className="aspect-square w-full object-cover" />
+              <img loading="lazy" src={a.image_url} alt={a.title} className="aspect-square w-full object-cover" />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-1.5">
                 <div className="text-[10px] text-white truncate text-left">{a.title}</div>
               </div>

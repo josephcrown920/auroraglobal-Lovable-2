@@ -612,7 +612,7 @@ function MusicVideoPage() {
                 "/sample-photos/fire-warehouse.png",
               ].map((src) => (
                 <div key={src} className="relative aspect-video rounded-xl overflow-hidden bg-card/60 border border-border">
-                  <img src={src} alt="Sample output" className="w-full h-full object-cover object-top" />
+                  <img loading="lazy" src={src} alt="Sample output" className="w-full h-full object-cover object-top" />
                 </div>
               ))}
             </div>
@@ -647,7 +647,7 @@ function MusicVideoPage() {
                         autoPlay
                       />
                     ) : (
-                      <img src={url} alt="Generated result" className="w-full h-full object-cover" />
+                      <img loading="lazy" src={url} alt="Generated result" className="w-full h-full object-cover" />
                     )}
                     <div className="absolute top-2 right-2 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       <a

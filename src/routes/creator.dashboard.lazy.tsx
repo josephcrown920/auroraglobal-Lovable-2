@@ -264,7 +264,7 @@ function CreatorDashboardPage() {
                   className="rounded-2xl border border-border bg-card/30 p-4 flex gap-4"
                 >
                   {t.thumbnail_url ? (
-                    <img src={t.thumbnail_url} alt={t.name} className="w-16 h-16 rounded-xl object-cover shrink-0 border border-border" />
+                    <img loading="lazy" src={t.thumbnail_url} alt={t.name} className="w-16 h-16 rounded-xl object-cover shrink-0 border border-border" />
                   ) : (
                     <div className="w-16 h-16 rounded-xl bg-muted flex items-center justify-center shrink-0">
                       <Store className="size-6 text-muted-foreground/30" />

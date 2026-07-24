@@ -520,7 +520,7 @@ function StudioPage() {
 
       <header className="relative z-10 flex items-center justify-between pl-24 pr-6 md:pl-24 md:pr-10 py-5 border-b border-border/60 backdrop-blur-xl bg-background/40">
         <Link to="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <img src={auroraLogo.url} alt="AURORA" className="size-8 rounded-xl object-contain shadow-[var(--shadow-glow-soft)]" />
+          <img loading="lazy" src={auroraLogo.url} alt="AURORA" className="size-8 rounded-xl object-contain shadow-[var(--shadow-glow-soft)]" />
           AURORA STUDIO
 
         </Link>
@@ -881,7 +881,7 @@ function StudioPage() {
                   <div key={g.id} className="aspect-square rounded-xl overflow-hidden border border-border bg-card/60 relative group">
                     {g.result_image_url ? (
                       <>
-                        <img src={g.result_image_url} alt="" className="w-full h-full object-cover" />
+                        <img loading="lazy" src={g.result_image_url} alt="" className="w-full h-full object-cover" />
                         <div className="absolute top-1.5 left-1.5"><ModelBadge model={g.model} size="xs" /></div>
                       </>
                     ) : (

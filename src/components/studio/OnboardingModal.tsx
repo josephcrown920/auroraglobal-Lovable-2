@@ -234,7 +234,7 @@ export function OnboardingModal({ userId, open, onOpenChange, onApply, onBonusGr
               )}
             >
               {selfieUrl ? (
-                <img src={selfieUrl} alt="Selfie" className="size-full object-cover" />
+                <img loading="lazy" src={selfieUrl} alt="Selfie" className="size-full object-cover" />
               ) : uploading ? (
                 <Loader2 className="size-8 animate-spin text-muted-foreground" />
               ) : (

@@ -800,7 +800,7 @@ function BatchLipSyncForm() {
           <div className="mt-3 grid grid-cols-4 md:grid-cols-8 gap-2">
             {previews.map((url, i) => (
               <div key={url} className="relative aspect-square rounded-lg overflow-hidden bg-black/40 group">
-                <img src={url} alt={`photo ${i + 1}`} className="w-full h-full object-cover" />
+                <img loading="lazy" src={url} alt={`photo ${i + 1}`} className="w-full h-full object-cover" />
                 <button
                   onClick={() => removePhoto(i)}
                   className="absolute top-1 right-1 size-5 rounded-full bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
@@ -970,7 +970,7 @@ function DropSlot({
           {kind === "video" ? (
             <AutoplayVideo src={previewUrl} className="w-full max-h-48 object-contain" controls autoPlay={false} />
           ) : kind === "image" ? (
-            <img src={previewUrl} alt="preview" className="w-full max-h-48 object-contain" />
+            <img loading="lazy" src={previewUrl} alt="preview" className="w-full max-h-48 object-contain" />
           ) : (
             <audio src={previewUrl} className="w-full" controls />
           )}

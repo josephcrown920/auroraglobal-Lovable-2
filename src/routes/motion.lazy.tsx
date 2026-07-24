@@ -666,7 +666,7 @@ function MotionStudio() {
           kind === "video" ? (
             <AutoplayVideo src={value} className="w-full h-40 object-cover" loop playsInline />
           ) : (
-            <img src={value} alt={label} className="w-full h-40 object-cover" />
+            <img loading="lazy" src={value} alt={label} className="w-full h-40 object-cover" />
           )
         ) : (
           <UploadSlot
@@ -910,7 +910,7 @@ function MotionStudio() {
                         ].map((r) => (
                           <div key={r.label} className="flex items-center gap-2">
                             <div className="size-14 rounded-lg overflow-hidden border border-border bg-card/60 shrink-0">
-                              {r.src ? <img src={r.src} alt="" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[9px] text-muted-foreground">—</div>}
+                              {r.src ? <img loading="lazy" src={r.src} alt="" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[9px] text-muted-foreground">—</div>}
                             </div>
                             <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">{r.label}</span>
                           </div>
@@ -1022,7 +1022,7 @@ function MotionStudio() {
                             </button>
                           </>
                         ) : g.result_image_url ? (
-                          <img src={g.result_image_url} alt="" className="w-full h-full object-cover" />
+                          <img loading="lazy" src={g.result_image_url} alt="" className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-[10px] text-muted-foreground">{g.status}</div>
                         )}
@@ -1273,7 +1273,7 @@ function MotionStudio() {
                         {g.result_video_url ? (
                           <AutoplayVideo src={g.result_video_url} className="w-full h-full object-cover" loop playsInline />
                         ) : g.result_image_url ? (
-                          <img src={g.result_image_url} alt="" className="w-full h-full object-cover" />
+                          <img loading="lazy" src={g.result_image_url} alt="" className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-[10px] text-muted-foreground">{g.status}</div>
                         )}
@@ -1311,7 +1311,7 @@ function MotionStudio() {
                 </div>
                 {mtImage2 && mtImage2 !== mtImage && (
                   <div className="flex items-center gap-3 p-3 rounded-xl border border-primary/20 bg-primary/5 mt-2">
-                    <img src={mtImage2} alt="Second shot" className="w-12 h-16 object-cover rounded-lg shrink-0" />
+                    <img loading="lazy" src={mtImage2} alt="Second shot" className="w-12 h-16 object-cover rounded-lg shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-medium text-white/70">Second shot available</p>
                       <p className="text-xs text-white/40 mt-0.5">Tap to animate this one instead</p>
@@ -1399,7 +1399,7 @@ function MotionStudio() {
                             </button>
                           </>
                         ) : g.result_image_url ? (
-                          <img src={g.result_image_url} alt="" className="w-full h-full object-cover" />
+                          <img loading="lazy" src={g.result_image_url} alt="" className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-[10px] text-muted-foreground">{g.status}</div>
                         )}
@@ -1826,7 +1826,7 @@ function MotionStudio() {
                       {g.result_video_url ? (
                         <AutoplayVideo src={g.result_video_url} className="w-full h-full object-cover" loop playsInline />
                       ) : g.result_image_url ? (
-                        <img src={g.result_image_url} alt="" className="w-full h-full object-cover" />
+                        <img loading="lazy" src={g.result_image_url} alt="" className="w-full h-full object-cover" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-[10px] text-muted-foreground">{g.status}</div>
                       )}

@@ -156,7 +156,7 @@ function EditorPage() {
       <header className="phone-fixed-x fixed top-0 z-40 w-full bg-[#070612]/80 backdrop-blur-xl border-b border-white/10">
         <div className="flex items-center justify-between pl-24 pr-6 md:px-12 py-4">
           <Link to="/" className="flex items-center gap-2 font-semibold tracking-tight no-underline">
-            <img src={auroraLogo.url} alt="AURORA" className="size-8 rounded-xl object-contain" />
+            <img loading="lazy" src={auroraLogo.url} alt="AURORA" className="size-8 rounded-xl object-contain" />
             <span className="text-white">AURORA</span>
 
           </Link>
