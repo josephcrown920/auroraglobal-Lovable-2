@@ -194,7 +194,7 @@ const PuremixRoute = PuremixRouteImport.update({
   id: '/puremix',
   path: '/puremix',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/puremix.lazy').then((d) => d.Route))
 const PhotoEditRoute = PhotoEditRouteImport.update({
   id: '/photo-edit',
   path: '/photo-edit',
