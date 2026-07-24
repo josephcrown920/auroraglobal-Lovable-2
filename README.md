@@ -85,6 +85,31 @@ supabase/
 - `bun run build` — production build
 - `bun run preview` — preview the build
 
+## Integrating with Replit (master repo sync)
+
+The Replit repo is the master; Lovable is used as a design/edit surface, then folded back in. To bring a Lovable export into Replit cleanly:
+
+1. **Export from Lovable.** Grab the latest `aurora-export.zip` produced in this project (Documents → `aurora-export.zip`). It excludes `node_modules`, `.git`, `dist`, and heavy `.mp4/.mov/.webm` binaries — every video is still reachable through its `*.asset.json` CDN pointer.
+2. **Unzip into a scratch dir** on Replit (e.g. `~/aurora-lovable/`). Do **not** unzip directly on top of the master checkout.
+3. **Rsync app code only** (never touch git or lockfile-managed dirs):
+   ```bash
+   rsync -a --delete \
+     --exclude='.git' --exclude='.git/**' \
+     --exclude='node_modules' --exclude='dist' --exclude='.replit' \
+     --exclude='supabase/config.toml' \
+     ~/aurora-lovable/ ./
+   ```
+   `supabase/config.toml` is Lovable-generated (`project_id` only) — keep the Replit one so Replit stays pointed at its own Supabase.
+4. **Reinstall + regenerate types.** `bun install`, then re-generate Supabase types against the Replit database so `src/integrations/supabase/types.ts` matches. If Replit uses a different Supabase project, do this step or the app will 400 on new tables.
+5. **Apply migrations in order** from `supabase/migrations/*.sql`. **Skip** `20260718113413_*` — it contains a destructive `DROP SCHEMA public CASCADE` that will wipe live data. All later files are idempotent (`IF NOT EXISTS`, `DROP POLICY IF EXISTS`) and safe to replay.
+6. **Mirror secrets** into Replit's Secrets pane. Required for parity: `FAL_KEY`, `KLING_ACCESS_KEY`, `KLING_SECRET_KEY`, `HEYGEN_API_KEY`, `SYNC_API_KEY`, `HF_TOKEN`, `RESEND_API_KEY`, `AURORA_FROM_EMAIL`, `PAYSTACK_SECRET_KEY`, `PAYSTACK_PUBLIC_KEY`, and any AI provider keys you use. `.env` on Replit still only carries the public `VITE_SUPABASE_*` values.
+7. **Rewire the auth hook if needed.** `@/hooks/use-auth` must return `{ user: { email } }` (used by `MobileNav`'s admin allowlist). Any Replit-side Supabase client is fine as long as that shape is preserved.
+8. **Confirm the UI lock** against [`snapshot.md`](./snapshot.md) and [`ui.md`](./ui.md): full-caps wordmark, Menu button below the header, Artists sidebar leading with the four gold flagships, bottom tab bar showing **Infinity Canvas · Video Agent · TikTok30**, Admin link hidden except for the two owner emails.
+9. **Server-side admin gate.** Reconfirm `/admin` routes enforce `has_role(auth.uid(), 'admin')` on the Replit DB — the UI hide is defense-in-depth only.
+10. **Smoke test.** `bun run build` (must be clean), then boot with `bun run dev` and verify the landing page, `/canvas` (Infinity), `/agent`, `/spin`, and `/storyboard`. If a generation call 500s, it's almost always a missing secret from step 6.
+
+Repeat this loop each time you pull a fresh Lovable export.
+
 ## License
 
 Proprietary — © Aurora Studio.
