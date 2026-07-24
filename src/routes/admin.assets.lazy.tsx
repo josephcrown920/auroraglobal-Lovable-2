@@ -44,7 +44,7 @@ function AdminAssetsInner() {
     setLoading(true);
     const { data, error } = await supabase
       .from("admin_asset_packs" as never)
-      .select("*")
+      .select("id,category,title,image_url,tags,notes,is_published,sort_order,created_at")
       .eq("category", tab)
       .order("sort_order", { ascending: true })
       .order("created_at", { ascending: false });
