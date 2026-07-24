@@ -117,12 +117,7 @@ export const TEMPLATES: PlaygroundTemplate[] = [
     code: `// Welcome to the Aurora Playground.
 // Scripts run in a sandbox in YOUR browser — every aurora.* call
 // spends from your real Aura balance, exactly like the Studio.
-
-console.log("Generating one image (1 Aura)…");
-
 const res = await aurora.image("a tiny astronaut sticker, bold outlines, white background");
-
-console.log("Done — cost:", res.creditsCost, "Aura");
 aurora.show(res.url, "Tiny astronaut", "image");
 `,
   },
@@ -147,10 +142,8 @@ for (let i = 0; i < COUNT; i++) {
   aurora.progress(i, COUNT, prompt);
   const res = await aurora.image(prompt);
   aurora.show(res.url, "Variation " + (i + 1), "image");
-  console.log("#" + (i + 1), "→", res.creditsCost, "Aura");
 }
 aurora.progress(COUNT, COUNT, "All variations done");
-console.log("Batch complete.");
 `,
   },
   {
@@ -177,9 +170,6 @@ aurora.show(clip.url, clip.preview ? "Video (preview) — confirm to render full
 aurora.progress(2, 2, "Pipeline done");
 
 if (clip.preview) {
-  console.log("Preview cost:", clip.creditsCost, "Aura");
-  console.log("To render FULL quality, call aurora.video again with:");
-  console.log("  confirmPreviewId:", clip.previewGenerationId);
 }
 `,
   },
@@ -189,21 +179,14 @@ if (clip.preview) {
     description: "Use the text model to write prompts, then render the best one.",
     code: `// Let the text model brainstorm prompts, then render one.
 const brief = "moody jazz club poster for an indie artist";
-
-console.log("Asking the text model for prompt ideas…");
 const ideas = await aurora.text(
   "Write 3 short, vivid image-generation prompts for: " + brief +
   ". One per line, no numbering."
 );
-console.log(ideas.text ?? ideas.url ?? "(no output)");
-
 const first = String(ideas.text ?? "").split("\\n").map(s => s.trim()).filter(Boolean)[0];
 if (!first) throw new Error("The text model returned no usable prompt");
-
-console.log("Rendering:", first);
 const img = await aurora.image(first);
 aurora.show(img.url, "Rendered from AI prompt", "image");
-console.log("Cost:", img.creditsCost, "Aura");
 `,
   },
   {
@@ -222,7 +205,6 @@ const PROMPTS = [
 const submitted = [];
 for (const prompt of PROMPTS) {
   const job = await aurora.jobs.submit({ kind: "image", prompt });
-  console.log("Queued", job.jobId.slice(0, 8), "→", prompt);
   submitted.push({ id: job.jobId, prompt });
 }
 

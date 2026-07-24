@@ -119,8 +119,6 @@ export const Route = createFileRoute("/api/public/check-api-balances")({
           alerts,
           low_balance: alerts.length > 0,
         };
-
-        console.log("[api-balance-check]", JSON.stringify(result));
         return new Response(JSON.stringify(result), {
           status: 200,
           headers: { "Content-Type": "application/json" },
