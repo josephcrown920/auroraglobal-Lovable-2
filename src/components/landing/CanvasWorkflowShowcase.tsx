@@ -84,7 +84,7 @@ export function CanvasWorkflowShowcase() {
                 className="group relative rounded-xl overflow-hidden border border-border bg-black/40 no-underline hover:border-emerald-400/50 transition"
               >
                 <div className="relative aspect-[4/5]">
-                  <img src={wf.cover} alt={wf.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
+                  <img loading="lazy" src={wf.cover} alt={wf.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
                   <div className="absolute top-2 left-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-400/90 text-[9px] font-bold text-emerald-950">
                     <CheckCircle2 className="size-2.5" /> DONE
                   </div>

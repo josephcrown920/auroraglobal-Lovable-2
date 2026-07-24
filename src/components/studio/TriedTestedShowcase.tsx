@@ -53,7 +53,7 @@ export function TriedTestedShowcase({
 
       <div className="px-5 md:px-7 pb-6 grid grid-cols-[1fr_auto_1fr] gap-3 md:gap-4 items-center">
         <figure className="rounded-2xl overflow-hidden border border-border bg-background/40">
-          <img src={refsImage} alt="References" className="w-full aspect-[4/5] object-cover" />
+          <img loading="lazy" src={refsImage} alt="References" className="w-full aspect-[4/5] object-cover" />
           <figcaption className="px-3 py-2 text-[11px] text-muted-foreground border-t border-border">
             <span className="text-[10px] uppercase tracking-wider mr-1.5 text-foreground/70">Inputs</span>
             {refsCaption}
@@ -69,7 +69,7 @@ export function TriedTestedShowcase({
           <span className="absolute top-2 left-2 z-10 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-400/90 text-[10px] font-bold text-emerald-950">
             <CheckCircle2 className="size-3" /> RENDERED
           </span>
-          <img src={finalImage} alt="Final render" className="w-full aspect-[4/5] object-cover" />
+          <img loading="lazy" src={finalImage} alt="Final render" className="w-full aspect-[4/5] object-cover" />
           <figcaption className="px-3 py-2 text-[11px] text-foreground/80 border-t border-white/10 bg-black/40">
             <span className="text-[10px] uppercase tracking-wider mr-1.5 text-emerald-300">Final</span>
             {finalCaption}

@@ -571,7 +571,7 @@ function ContentLine() {
                 />
                 {refPreview ? (
                   <div className="relative">
-                    <img src={refPreview} alt="Reference" className="max-h-40 mx-auto rounded-lg object-contain" />
+                    <img loading="lazy" src={refPreview} alt="Reference" className="max-h-40 mx-auto rounded-lg object-contain" />
                     <button
                       className="absolute top-1 right-1 bg-black/60 rounded-full p-0.5"
                       onClick={(e) => { e.stopPropagation(); setRefFile(null); setRefPreview(null); }}

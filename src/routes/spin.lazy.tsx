@@ -480,7 +480,7 @@ function SpinPage() {
                     }`}
                   >
                     {productUrl ? (
-                      <img src={productUrl} alt="Product" className="absolute inset-0 h-full w-full object-cover" />
+                      <img loading="lazy" src={productUrl} alt="Product" className="absolute inset-0 h-full w-full object-cover" />
                     ) : (
                       <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 text-muted-foreground group-hover:text-primary">
                         {productUploading ? <Loader2 className="size-5 animate-spin" /> : <ImageIcon className="size-5" />}
@@ -551,7 +551,7 @@ function SpinPage() {
           />
           {faceUrl ? (
             <div className="flex items-center gap-3 rounded-xl aurora-glass p-2">
-              <img src={faceUrl} alt="Reference" className="size-12 rounded-lg object-cover" />
+              <img loading="lazy" src={faceUrl} alt="Reference" className="size-12 rounded-lg object-cover" />
               <div className="flex-1 text-sm text-foreground">Reference photo locked in</div>
               <button
                 type="button"
@@ -599,7 +599,7 @@ function SpinPage() {
                     }`}
                   >
                     {a.previewUrl ? (
-                      <img src={a.previewUrl} alt={a.name} className="size-6 rounded-full object-cover" />
+                      <img loading="lazy" src={a.previewUrl} alt={a.name} className="size-6 rounded-full object-cover" />
                     ) : (
                       <span className="grid size-6 place-items-center rounded-full bg-white/10">
                         <User className="size-3" />

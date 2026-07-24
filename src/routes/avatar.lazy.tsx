@@ -816,7 +816,7 @@ function AvatarStudioPage() {
                     file?.type.startsWith("video") ? (
                       <video src={preview} className="max-h-24 rounded-lg" muted playsInline />
                     ) : (
-                      <img src={preview} alt="preview" className="max-h-24 rounded-lg object-contain" />
+                      <img loading="lazy" src={preview} alt="preview" className="max-h-24 rounded-lg object-contain" />
                     )
                   ) : (
                     <>
@@ -883,7 +883,7 @@ function AvatarStudioPage() {
                               isVideo ? (
                                 <video src={av.signedUrl} className="w-full h-full object-cover" muted playsInline />
                               ) : (
-                                <img src={av.signedUrl} alt={av.name} className="w-full h-full object-cover" />
+                                <img loading="lazy" src={av.signedUrl} alt={av.name} className="w-full h-full object-cover" />
                               )
                             ) : (
                               <div className="w-full h-full flex items-center justify-center">
@@ -1061,7 +1061,7 @@ function AvatarStudioPage() {
                       }`}
                     >
                       {av.signedUrl ? (
-                        <img src={av.signedUrl} alt={av.name} className="w-full h-full object-cover" />
+                        <img loading="lazy" src={av.signedUrl} alt={av.name} className="w-full h-full object-cover" />
                       ) : (
                         <div className="w-full h-full bg-muted/30 flex items-center justify-center">
                           <span className="text-[8px] text-muted-foreground">?</span>

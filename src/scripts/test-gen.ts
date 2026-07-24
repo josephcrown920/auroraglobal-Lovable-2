@@ -68,14 +68,10 @@ const results = await Promise.all([
     imageUrls: [TEST_SELFIE],
   })),
 ]);
-
-console.log("\n── Test results ─────────────────────────────────────");
 for (const r of results) {
   const icon = r.error ? "✗" : "✓";
   const detail = r.error
     ? `ERROR: ${r.error}`
     : `${r.provider} · ${r.url ?? r.text ?? "(no output)"}`;
-  console.log(`${icon} ${r.surface.padEnd(24)} ${r.ms}ms  ${detail}`);
 }
 const failed = results.filter((r) => r.error);
-console.log(`\n${results.length - failed.length}/${results.length} passed\n`);

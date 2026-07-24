@@ -140,7 +140,7 @@ function MiniUpload({
     >
       <div className="relative size-12 shrink-0 rounded-lg overflow-hidden bg-background/60 flex items-center justify-center">
         {value && accept === "image/*" ? (
-          <img src={value} alt={label} className="size-full object-cover" />
+          <img loading="lazy" src={value} alt={label} className="size-full object-cover" />
         ) : value ? (
           <Icon className="size-4 text-primary" />
         ) : busy ? (
@@ -975,7 +975,7 @@ function ColorsStudio() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <img src={g.result_image_url!} alt="" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={g.result_image_url!} alt="" className="w-full h-full object-cover" />
                   )}
                 </a>
                 {/* Download button — fetch→Blob so cross-origin studio URLs actually save */}

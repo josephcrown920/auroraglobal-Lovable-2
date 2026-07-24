@@ -232,7 +232,7 @@ function renderTemplate(template: string, data: Record<string, unknown>): string
         p(`Your first Aurora creation just finished. That one matters — it's the beginning of your whole catalog.`) +
         p(`Every artist who blows up started with a first piece. Keep creating and build your library.`) +
         ((data.resultUrl as string)
-          ? `<div style="text-align:center;margin:24px 0"><img src="${escapeHtml(data.resultUrl as string)}" alt="Your creation" style="max-width:100%;border-radius:10px;border:1px solid rgba(167,139,250,0.2)"></div>`
+          ? `<div style="text-align:center;margin:24px 0"><img loading="lazy" src="${escapeHtml(data.resultUrl as string)}" alt="Your creation" style="max-width:100%;border-radius:10px;border:1px solid rgba(167,139,250,0.2)"></div>`
           : ""),
         "Make Another",
         STUDIO_URL,

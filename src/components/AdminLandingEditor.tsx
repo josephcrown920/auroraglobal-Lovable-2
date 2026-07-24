@@ -197,7 +197,7 @@ function EditorSheet() {
                   return (
                     <div key={img.key} className="rounded-xl border border-border bg-card/60 overflow-hidden">
                       <div className="relative aspect-[3/4] bg-muted">
-                        <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                        <img loading="lazy" src={img.url} alt={img.label} className="w-full h-full object-cover" />
                         {isCustom && (
                           <span className="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full bg-primary text-primary-foreground text-[9px] font-bold uppercase tracking-wide">
                             custom

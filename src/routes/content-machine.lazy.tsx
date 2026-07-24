@@ -227,7 +227,7 @@ function ProductEditor({
         <div className="flex flex-wrap gap-2">
           {photos.map((url) => (
             <div key={url} className="relative size-16 rounded-lg overflow-hidden border border-border">
-              <img src={url} alt="" className="size-full object-cover" />
+              <img loading="lazy" src={url} alt="" className="size-full object-cover" />
               <button
                 onClick={() => setPhotos((p) => p.filter((u) => u !== url))}
                 className="absolute top-0.5 right-0.5 rounded-full bg-background/80 p-0.5 text-muted-foreground hover:text-destructive"
@@ -556,7 +556,7 @@ function ContentMachinePage() {
       <header className="relative z-10 flex items-center justify-between px-6 md:px-10 py-4 border-b border-border bg-background/80 backdrop-blur-xl">
         <Link to="/studio" className="flex items-center gap-2 font-semibold tracking-tight">
           <ArrowLeft className="size-4 text-muted-foreground" />
-          <img src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
+          <img loading="lazy" src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
           Content Machine
         </Link>
         <div className="flex items-center gap-3 text-sm">
@@ -637,7 +637,7 @@ function ContentMachinePage() {
                       <button onClick={() => setSelectedProductId(p.id)} className="flex w-full items-start gap-3 text-left">
                         <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-background/60 overflow-hidden">
                           {p.photos[0] ? (
-                            <img src={p.photos[0]} alt="" className="size-full object-cover" />
+                            <img loading="lazy" src={p.photos[0]} alt="" className="size-full object-cover" />
                           ) : (
                             <Package className="size-4 text-muted-foreground" />
                           )}
@@ -868,7 +868,7 @@ function ContentMachinePage() {
                         </div>
                       ) : it.imageUrl ? (
                         <>
-                          <img src={it.imageUrl} alt="" className="size-full object-cover opacity-60" />
+                          <img loading="lazy" src={it.imageUrl} alt="" className="size-full object-cover opacity-60" />
                           <Loader2 className="absolute size-6 animate-spin text-primary" />
                         </>
                       ) : (

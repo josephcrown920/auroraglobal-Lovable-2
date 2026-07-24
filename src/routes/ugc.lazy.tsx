@@ -405,7 +405,7 @@ function UGCStudio() {
             {resultVideo ? (
               <AutoplayVideo src={resultVideo} controls muted={false} loop className="w-full h-full object-cover" />
             ) : resultImage ? (
-              <img src={resultImage} alt="UGC result" className="w-full h-full object-cover" />
+              <img loading="lazy" src={resultImage} alt="UGC result" className="w-full h-full object-cover" />
             ) : (
               <div className="text-xs text-muted-foreground p-4 text-center">
                 {busy ? <><Loader2 className="size-5 mx-auto mb-2 animate-spin" /> Working… ~15s</> : <>Your UGC shot will appear here.</>}

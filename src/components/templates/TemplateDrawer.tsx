@@ -248,7 +248,7 @@ export function TemplateDrawer({
           {/* Header */}
           <div className="flex items-start gap-3">
             <div className="relative size-16 shrink-0 overflow-hidden rounded-xl">
-              <img src={template.thumbnail} alt="" className="h-full w-full object-cover" />
+              <img loading="lazy" src={template.thumbnail} alt="" className="h-full w-full object-cover" />
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
@@ -435,7 +435,7 @@ function FileField({
         className="mt-1.5 flex w-full items-center gap-3 rounded-xl border border-dashed border-border bg-black/20 px-4 py-3 text-left hover:border-primary/50 disabled:opacity-60"
       >
         {value?.preview ? (
-          <img src={value.preview} alt="" className="size-11 shrink-0 rounded-lg object-cover" />
+          <img loading="lazy" src={value.preview} alt="" className="size-11 shrink-0 rounded-lg object-cover" />
         ) : (
           <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
             {busy ? (

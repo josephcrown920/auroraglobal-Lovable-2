@@ -119,7 +119,7 @@ function GalleryPage() {
       <header className="relative z-10 flex items-center justify-between pl-24 pr-6 md:pl-24 md:pr-10 py-5 border-b border-border bg-background/80 backdrop-blur-xl">
         <Link to="/studio" className="flex items-center gap-2 font-semibold tracking-tight">
           <ArrowLeft className="size-4 text-muted-foreground" />
-          <img src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
+          <img loading="lazy" src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
           My Gallery
         </Link>
         <div className="flex items-center gap-3">

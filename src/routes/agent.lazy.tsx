@@ -931,7 +931,7 @@ function AgentPage() {
         <aside className="flex w-64 shrink-0 flex-col border-r border-line bg-panel/70 backdrop-blur-sm" style={{ zIndex: 10 }}>
           {/* header */}
           <div className="flex items-center gap-3 border-b border-line px-5 py-4">
-            <img src={auroraLogo.url} alt="Aurora" width={32} height={32} className="rounded-md" />
+            <img loading="lazy" src={auroraLogo.url} alt="Aurora" width={32} height={32} className="rounded-md" />
             <div className="flex flex-col leading-tight">
               <span className="text-xs font-bold uppercase tracking-[0.3em] text-ink-dim">Studio</span>
               <span className="text-[13px] font-black uppercase tracking-widest text-ink">Aurora Prime</span>
@@ -1102,7 +1102,7 @@ function AgentPage() {
                     </div>
                   ) : (
                     <>
-                      <img src={auroraLogo.url} alt="" width={26} height={26} className="mt-1 size-[26px] shrink-0 rounded" />
+                      <img loading="lazy" src={auroraLogo.url} alt="" width={26} height={26} className="mt-1 size-[26px] shrink-0 rounded" />
                       <div className="min-w-0 flex-1">
                         <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-widest text-prime">
                           Aurora Prime
@@ -1124,7 +1124,7 @@ function AgentPage() {
 
               {isLoading && (
                 <div className="flex gap-3">
-                  <img src={auroraLogo.url} alt="" width={26} height={26} className="mt-1 size-[26px] shrink-0 rounded" />
+                  <img loading="lazy" src={auroraLogo.url} alt="" width={26} height={26} className="mt-1 size-[26px] shrink-0 rounded" />
                   <div className="flex items-center gap-2 text-[13px] uppercase tracking-widest text-ink-dim">
                     <span className="size-1.5 rounded-full bg-prime rec-pulse" />
                     Aurora is composing the shot…

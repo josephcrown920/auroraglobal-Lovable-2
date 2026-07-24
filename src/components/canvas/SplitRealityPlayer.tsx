@@ -84,7 +84,7 @@ export function SplitRealityPlayer({
             leftIsVideo ? (
               <AutoplayVideo ref={leftRef} src={leftSrc} autoPlay={false} playsInline className="w-full h-full object-cover" />
             ) : (
-              <img src={leftSrc} alt="ultra" className="w-full h-full object-cover" />
+              <img loading="lazy" src={leftSrc} alt="ultra" className="w-full h-full object-cover" />
             )
           ) : null}
           <span className="absolute top-1 left-1 text-xs uppercase tracking-wider px-1.5 py-0.5 rounded bg-black/70 text-emerald-300 border border-emerald-400/30">
@@ -96,7 +96,7 @@ export function SplitRealityPlayer({
             rightIsVideo ? (
               <AutoplayVideo ref={rightRef} src={rightSrc} autoPlay={false} playsInline className="w-full h-full object-cover" />
             ) : (
-              <img src={rightSrc} alt="cinematic" className="w-full h-full object-cover" />
+              <img loading="lazy" src={rightSrc} alt="cinematic" className="w-full h-full object-cover" />
             )
           ) : null}
           <span className="absolute top-1 right-1 text-xs uppercase tracking-wider px-1.5 py-0.5 rounded bg-black/70 text-amber-300 border border-amber-400/30">

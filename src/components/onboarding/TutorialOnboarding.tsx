@@ -120,7 +120,7 @@ export function TutorialOnboarding({ show = true, forceShow = false, onDismiss }
 
         <div className="p-4 flex items-start gap-3">
           <div className="shrink-0 size-10 rounded-xl overflow-hidden border border-white/20 bg-black flex items-center justify-center">
-            <img src={auroraLogo.url} alt="Aurora" className="size-8 object-contain" />
+            <img loading="lazy" src={auroraLogo.url} alt="Aurora" className="size-8 object-contain" />
           </div>
 
           <div className="flex-1 min-w-0">
