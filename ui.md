@@ -4,9 +4,10 @@ Locked UI reference for the marketing site + in-app shell. Mirror this when port
 
 ## Brand
 
-- Wordmark: **AURORA PERFORMANCE STUDIO** (all caps, tracking-[0.18em], `font-display font-bold`).
+- Wordmark: **AURORA PERFORMANCE STUDIO** (all caps, `tracking-[0.18em]`, `font-display font-bold`).
 - Mobile compact form: **AURORA** (below `sm` breakpoint).
 - Accent: `bg-brand` dot at 8px, chromatic aurora gradient primary.
+- Gold treatment (`bg-gradient-to-r from-[#f6d365] via-[#fbbf24] to-[#b8860b] bg-clip-text text-transparent`) is reserved for flagship Artists entries: **Infinity Canvas**, **Video Agent**, **Perform Anywhere**, **Colors Performance Sessions**.
 - Assets:
   - App Store icon — `src/assets/aurora-app-icon.png` (1024×1024)
   - Play Store icon — `src/assets/aurora-play-icon.png` (512×512)
@@ -29,15 +30,17 @@ Locked UI reference for the marketing site + in-app shell. Mirror this when port
 
 Three sections, in order:
 
-1. **Artists** — Motion Control, Music Video, Live Studios, Colors Sessions, Lip Sync, Scene Builder.
-2. **Creators** — TikTok30 (Premium), UGC Ads, Content Line, Image Generation, Photo Editor, Talking Avatars, Canvas, Video Agent.
+1. **Artists** — Infinity Canvas ⭐, Video Agent ⭐, Perform Anywhere ⭐, Colors Performance Sessions ⭐, Motion Control, Music Video, Storyboard, Live Studios, Lip Sync, Scene Builder. (⭐ = gold gradient.)
+2. **Creators** — TikTok30 (Premium), UGC Ads, Content Line, Image Generation, Photo Editor, Talking Avatars.
 3. **Account** — Gallery, Creator Hub, Plan & Billing, Affiliate, **Admin (owner-only, see below)**.
 
 Footer: theme toggle.
 
+> Note: there are **two** canvases. **Infinity Canvas** (`/canvas`) is the node-based workflow board; a separate legacy "Canvas" surface is not linked in nav. Always disambiguate by the full name **Infinity Canvas**.
+
 ## Bottom Tab Bar
 
-3-column glass bar, safe-area padded. Breathing indicator + glow on active tab. Hidden on `/canvas`.
+3-column glass bar, safe-area padded. Breathing indicator + glow on active tab. Hidden on `/canvas`. Tabs (everyone gets these): **Infinity Canvas**, **Video Agent**, **TikTok30** — all flagged `premium` for the highlighted treatment.
 
 ## Admin Visibility
 

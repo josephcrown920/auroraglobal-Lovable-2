@@ -15,16 +15,6 @@ import heroFiveAsset from "@/assets/uploads/IMG_3995.png.asset.json";
 
 const HERO_SLIDES = [
   {
-    src: heroNewOneAsset.url,
-    alt: "Artist with star hair clips holding a glitter star wand in a dreamy pastel scene",
-    label: "Star wand portrait",
-  },
-  {
-    src: heroNewTwoAsset.url,
-    alt: "Performer center stage surrounded by dancers under yellow smoke and spotlights",
-    label: "Stage ensemble",
-  },
-  {
     src: heroZeroAsset.url,
     alt: "Artist in red futuristic eyewear against a vivid blue background",
     label: "Blue light portrait",
@@ -33,6 +23,16 @@ const HERO_SLIDES = [
     src: heroZeroTwoAsset.url,
     alt: "Artist with red braids in a black leather jacket under neon blue studio lights",
     label: "Neon side profile",
+  },
+  {
+    src: heroNewOneAsset.url,
+    alt: "Artist with star hair clips holding a glitter star wand in a dreamy pastel scene",
+    label: "Star wand portrait",
+  },
+  {
+    src: heroNewTwoAsset.url,
+    alt: "Performer center stage surrounded by dancers under yellow smoke and spotlights",
+    label: "Stage ensemble",
   },
   {
     src: heroOneAsset.url,
