@@ -25,7 +25,15 @@ function DefaultErrorComponent({ error }: { error: Error; reset: () => void }) {
 }
 
 export const getRouter = () => {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 300_000,
+        gcTime: 600_000,
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   const router = createRouter({
     routeTree,
