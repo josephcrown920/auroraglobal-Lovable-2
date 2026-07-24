@@ -65,6 +65,7 @@ const MAKE_FEATURES: Feature[] = [
   { to: "/live-studio",   label: "Live Studios",                 icon: Music2,       previewImg: "/nav-previews/live-studio.jpg" },
   { to: "/lipsync",       label: "Lip Sync",                     icon: Mic,          previewImg: "/nav-previews/lipsync.jpg" },
   { to: "/scene-builder", label: "Scene Builder",                icon: Layers,       previewImg: "/nav-previews/scene-builder.jpg" },
+  { to: "/puremix",       label: "PureMix",                      icon: Music2,       previewImg: "/nav-previews/music-video.jpg" },
 ];
 
 /** Creators — UGC, viral, and short-form tools. */

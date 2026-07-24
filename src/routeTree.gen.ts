@@ -27,6 +27,7 @@ import { Route as SceneBuilderRouteImport } from './routes/scene-builder'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ReshootRouteImport } from './routes/reshoot'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as PuremixRouteImport } from './routes/puremix'
 import { Route as PhotoEditRouteImport } from './routes/photo-edit'
 import { Route as OrchestrateRouteImport } from './routes/orchestrate'
 import { Route as NexusarbRouteImport } from './routes/nexusarb'
@@ -189,6 +190,11 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
 } as any).lazy(() =>
   import('./routes/reset-password.lazy').then((d) => d.Route),
 )
+const PuremixRoute = PuremixRouteImport.update({
+  id: '/puremix',
+  path: '/puremix',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/puremix.lazy').then((d) => d.Route))
 const PhotoEditRoute = PhotoEditRouteImport.update({
   id: '/photo-edit',
   path: '/photo-edit',
@@ -623,6 +629,7 @@ export interface FileRoutesByFullPath {
   '/nexusarb': typeof NexusarbRoute
   '/orchestrate': typeof OrchestrateRoute
   '/photo-edit': typeof PhotoEditRoute
+  '/puremix': typeof PuremixRoute
   '/reset-password': typeof ResetPasswordRoute
   '/reshoot': typeof ReshootRoute
   '/roadmap': typeof RoadmapRoute
@@ -716,6 +723,7 @@ export interface FileRoutesByTo {
   '/nexusarb': typeof NexusarbRoute
   '/orchestrate': typeof OrchestrateRoute
   '/photo-edit': typeof PhotoEditRoute
+  '/puremix': typeof PuremixRoute
   '/reset-password': typeof ResetPasswordRoute
   '/reshoot': typeof ReshootRoute
   '/roadmap': typeof RoadmapRoute
@@ -811,6 +819,7 @@ export interface FileRoutesById {
   '/nexusarb': typeof NexusarbRoute
   '/orchestrate': typeof OrchestrateRoute
   '/photo-edit': typeof PhotoEditRoute
+  '/puremix': typeof PuremixRoute
   '/reset-password': typeof ResetPasswordRoute
   '/reshoot': typeof ReshootRoute
   '/roadmap': typeof RoadmapRoute
@@ -906,6 +915,7 @@ export interface FileRouteTypes {
     | '/nexusarb'
     | '/orchestrate'
     | '/photo-edit'
+    | '/puremix'
     | '/reset-password'
     | '/reshoot'
     | '/roadmap'
@@ -999,6 +1009,7 @@ export interface FileRouteTypes {
     | '/nexusarb'
     | '/orchestrate'
     | '/photo-edit'
+    | '/puremix'
     | '/reset-password'
     | '/reshoot'
     | '/roadmap'
@@ -1093,6 +1104,7 @@ export interface FileRouteTypes {
     | '/nexusarb'
     | '/orchestrate'
     | '/photo-edit'
+    | '/puremix'
     | '/reset-password'
     | '/reshoot'
     | '/roadmap'
@@ -1188,6 +1200,7 @@ export interface RootRouteChildren {
   NexusarbRoute: typeof NexusarbRoute
   OrchestrateRoute: typeof OrchestrateRoute
   PhotoEditRoute: typeof PhotoEditRoute
+  PuremixRoute: typeof PuremixRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   ReshootRoute: typeof ReshootRoute
   RoadmapRoute: typeof RoadmapRoute
@@ -1354,6 +1367,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/puremix': {
+      id: '/puremix'
+      path: '/puremix'
+      fullPath: '/puremix'
+      preLoaderRoute: typeof PuremixRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/photo-edit': {
@@ -1957,6 +1977,7 @@ const rootRouteChildren: RootRouteChildren = {
   NexusarbRoute: NexusarbRoute,
   OrchestrateRoute: OrchestrateRoute,
   PhotoEditRoute: PhotoEditRoute,
+  PuremixRoute: PuremixRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   ReshootRoute: ReshootRoute,
   RoadmapRoute: RoadmapRoute,
@@ -2013,13 +2034,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
