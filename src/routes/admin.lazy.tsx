@@ -87,7 +87,7 @@ function AdminPage() {
     <main className="min-h-screen bg-background">
       <header className="flex items-center justify-between pl-24 pr-6 md:pl-24 md:pr-10 py-5 border-b border-border bg-card/40 backdrop-blur-xl">
         <Link to="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <img src={auroraLogo.url} alt="AURORA" className="size-8 rounded-xl object-contain" />
+          <img loading="lazy" src={auroraLogo.url} alt="AURORA" className="size-8 rounded-xl object-contain" />
           AURORA STUDIO
 
           <span className="ml-2 text-xs uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center gap-1"><Shield className="size-3" /> Admin</span>
@@ -196,7 +196,7 @@ function AdminPage() {
               <div key={g.id} className="rounded-xl overflow-hidden border border-border bg-card/40">
                 <div className="aspect-square bg-background/40">
                   {g.result_image_url ? (
-                    <img src={g.result_image_url} alt="" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={g.result_image_url} alt="" className="w-full h-full object-cover" />
                   ) : g.result_video_url ? (
                     <AutoplayVideo src={g.result_video_url} className="w-full h-full object-cover" autoPlay={false} playsInline />
                   ) : (
@@ -1290,7 +1290,7 @@ function ImagesPanel() {
               return (
                 <div key={img.key} className="rounded-xl border border-border bg-card/40 overflow-hidden space-y-2 p-2">
                   <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-background/40">
-                    <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                    <img loading="lazy" src={img.url} alt={img.label} className="w-full h-full object-cover" />
                     {isCustom && (
                       <span className="absolute top-1 right-1 px-1.5 py-0.5 rounded-full bg-primary text-primary-foreground text-[8px] font-bold uppercase tracking-wide">custom</span>
                     )}

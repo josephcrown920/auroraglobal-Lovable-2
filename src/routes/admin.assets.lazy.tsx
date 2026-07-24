@@ -44,7 +44,7 @@ function AdminAssetsInner() {
     setLoading(true);
     const { data, error } = await supabase
       .from("admin_asset_packs" as never)
-      .select("*")
+      .select("id,category,title,image_url,tags,notes,is_published,sort_order,created_at")
       .eq("category", tab)
       .order("sort_order", { ascending: true })
       .order("created_at", { ascending: false });
@@ -194,7 +194,7 @@ function AdminAssetsInner() {
               <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 {packs.map((p) => (
                   <div key={p.id} className="group relative rounded-xl overflow-hidden aurora-glass">
-                    <img src={p.image_url} alt={p.title} className="aspect-square w-full object-cover" />
+                    <img loading="lazy" src={p.image_url} alt={p.title} className="aspect-square w-full object-cover" />
                     <div className="p-2">
                       <div className="text-xs font-medium truncate">{p.title}</div>
                       {p.tags.length > 0 && (

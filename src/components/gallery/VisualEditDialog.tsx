@@ -52,7 +52,7 @@ export function VisualEditDialog({
         <div className="grid md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">Original</p>
-            <img src={sourceUrl} alt="" className="w-full rounded-xl border border-border object-cover aspect-[4/5]" />
+            <img loading="lazy" src={sourceUrl} alt="" className="w-full rounded-xl border border-border object-cover aspect-[4/5]" />
           </div>
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">Edited{mut.isPending ? " · rendering…" : resultUrl ? "" : " · preview"}</p>
@@ -60,7 +60,7 @@ export function VisualEditDialog({
               {mut.isPending ? (
                 <Loader2 className="size-6 animate-spin text-primary" />
               ) : resultUrl ? (
-                <img src={resultUrl} alt="" className="w-full h-full object-cover" />
+                <img loading="lazy" src={resultUrl} alt="" className="w-full h-full object-cover" />
               ) : (
                 <p className="text-xs text-muted-foreground p-4 text-center">Pick a preset or write a prompt below.</p>
               )}

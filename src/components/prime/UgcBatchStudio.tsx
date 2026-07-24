@@ -388,7 +388,7 @@ export function UgcBatchStudio({ onLaunch }: { onLaunch: (t: string) => void }) 
                 {job.videoUrl.endsWith(".mp4") ? (
                   <video src={job.videoUrl} controls className="w-full rounded-sm" />
                 ) : (
-                  <img src={job.videoUrl} alt="preview" className="w-full rounded-sm object-cover" />
+                  <img loading="lazy" src={job.videoUrl} alt="preview" className="w-full rounded-sm object-cover" />
                 )}
                 <a
                   href={job.videoUrl}

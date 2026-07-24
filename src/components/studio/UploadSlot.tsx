@@ -68,7 +68,7 @@ export function UploadSlot({ userId, label, hint, accept = "image/*", kind = "im
           kind === "video" ? (
             <AutoplayVideo src={value} className="w-full h-full object-cover" loop playsInline />
           ) : (
-            <img src={value} alt={label} className="w-full h-full object-cover" />
+            <img loading="lazy" src={value} alt={label} className="w-full h-full object-cover" />
           )
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted-foreground group-hover:text-primary transition-colors">

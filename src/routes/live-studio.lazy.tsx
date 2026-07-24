@@ -337,7 +337,7 @@ function LiveStudioPage() {
                     <div key={g.id} className="rounded-xl border border-border bg-card overflow-hidden">
                       {g.status === "completed" && g.result_image_url ? (
                         <>
-                          <img src={g.result_image_url} alt="Generated" className="w-full aspect-square object-cover" />
+                          <img loading="lazy" src={g.result_image_url} alt="Generated" className="w-full aspect-square object-cover" />
                           <div className="flex items-center justify-between px-2.5 py-2">
                             <span className="text-[11px] font-semibold text-emerald-400">Done</span>
                             <button onClick={() => dlImage(g.result_image_url!, `live-studio-${g.id}.jpg`)} className="text-muted-foreground hover:text-foreground transition-colors">
@@ -409,7 +409,7 @@ function LiveStudioPage() {
                     >
                       {refPreview ? (
                         <div className="relative w-full h-full">
-                          <img src={refPreview} alt="Ref" className="w-full h-full object-cover" />
+                          <img loading="lazy" src={refPreview} alt="Ref" className="w-full h-full object-cover" />
                           <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/70 flex items-center justify-center">
                             <X size={12} color="#fff" />
                           </div>

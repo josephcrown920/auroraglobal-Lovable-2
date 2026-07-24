@@ -12,4 +12,25 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    build: {
+      // Split large vendor libs into their own chunks so route chunks stay lean
+      // and long-cached vendor code survives across deploys.
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes("node_modules")) return;
+            if (id.includes("@tanstack/react-query")) return "vendor-query";
+            if (id.includes("@tanstack/react-router") || id.includes("@tanstack/react-start")) return "vendor-router";
+            if (id.includes("@supabase")) return "vendor-supabase";
+            if (id.includes("@radix-ui")) return "vendor-radix";
+            if (id.includes("lucide-react")) return "vendor-icons";
+            if (id.includes("framer-motion") || id.includes("motion-dom") || id.includes("motion-utils")) return "vendor-motion";
+            if (id.includes("recharts") || id.includes("d3-")) return "vendor-charts";
+            if (id.includes("react-dom") || id.includes("scheduler") || /[\\/]react[\\/]/.test(id)) return "vendor-react";
+          },
+        },
+      },
+    },
+  },
 });

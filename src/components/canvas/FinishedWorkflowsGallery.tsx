@@ -162,7 +162,7 @@ export function FinishedWorkflowsGallery({
         {active ? (
           <div className="grid md:grid-cols-[1.2fr_1fr] gap-6 mt-2">
             <div className="relative rounded-xl overflow-hidden border border-white/10 bg-black">
-              <img src={active.cover} alt={active.name} className="w-full aspect-[4/3] object-cover" />
+              <img loading="lazy" src={active.cover} alt={active.name} className="w-full aspect-[4/3] object-cover" />
               <button
                 onClick={() => setActive(null)}
                 className="absolute top-3 right-3 size-8 grid place-items-center rounded-full bg-black/70 border border-white/15 hover:bg-black"
@@ -242,7 +242,7 @@ export function FinishedWorkflowsGallery({
                 className="group text-left rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-emerald-400/50 transition"
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
-                  <img src={wf.cover} alt={wf.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
+                  <img loading="lazy" src={wf.cover} alt={wf.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
                   <div className="absolute top-2 left-2 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-400/90 text-[9px] font-bold text-emerald-950">
                     <CheckCircle2 className="size-2.5" /> DONE
                   </div>

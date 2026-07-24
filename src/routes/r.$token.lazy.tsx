@@ -44,7 +44,7 @@ function SharePage() {
           {isVideo ? (
             <video src={mediaUrl} controls playsInline className="w-full h-auto" />
           ) : (
-            <img src={mediaUrl} alt={s.prompt} className="w-full h-auto" />
+            <img loading="lazy" src={mediaUrl} alt={s.prompt} className="w-full h-auto" />
           )}
         </div>
 

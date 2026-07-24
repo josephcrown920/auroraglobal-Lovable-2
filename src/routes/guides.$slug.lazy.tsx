@@ -95,7 +95,7 @@ function SlotUpload({
       >
         <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-background/60">
           {value ? (
-            <img src={value} alt={label} className="size-full object-cover" />
+            <img loading="lazy" src={value} alt={label} className="size-full object-cover" />
           ) : busy ? (
             <Loader2 className="size-4 animate-spin text-muted-foreground" />
           ) : (
@@ -498,7 +498,7 @@ function GuideRunner() {
                     usePrev ? "border-primary/40 bg-primary/5" : "border-border bg-card/30",
                   )}
                 >
-                  <img src={previousImage} alt="Previous result" className="size-10 rounded-lg object-cover" />
+                  <img loading="lazy" src={previousImage} alt="Previous result" className="size-10 rounded-lg object-cover" />
                   <div className="flex-1 text-xs">
                     <div className="font-medium">Use the previous step's image</div>
                     <div className="text-muted-foreground">{usePrev ? "Attached as a reference" : "Not attached"}</div>

@@ -77,7 +77,7 @@ function MiniUpload({
     >
       <div className="relative size-14 shrink-0 rounded-lg overflow-hidden bg-background/60 flex items-center justify-center">
         {value ? (
-          <img src={value} alt={label} className="size-full object-cover" />
+          <img loading="lazy" src={value} alt={label} className="size-full object-cover" />
         ) : busy ? (
           <Loader2 className="size-4 animate-spin text-muted-foreground" />
         ) : (
@@ -270,7 +270,7 @@ function SplitRealityPage() {
       <header className="relative z-10 flex items-center justify-between px-6 md:px-10 py-4 border-b border-border bg-background/80 backdrop-blur-xl">
         <Link to="/studio" className="flex items-center gap-2 font-semibold tracking-tight">
           <ArrowLeft className="size-4 text-muted-foreground" />
-          <img src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
+          <img loading="lazy" src={auroraLogo.url} alt="Aurora" className="size-8 rounded-xl object-contain" />
           Split Reality
         </Link>
         <div className="flex items-center gap-3 text-sm">

@@ -132,7 +132,7 @@ export function GeneratedAssetGallery() {
                       {a.result_video_url ? (
                         <AutoplayVideo src={a.result_video_url} className="size-full object-cover" autoPlay={false} />
                       ) : a.result_image_url ? (
-                        <img src={a.result_image_url} alt="" className="size-full object-cover" />
+                        <img loading="lazy" src={a.result_image_url} alt="" className="size-full object-cover" />
                       ) : (
                         <Icon className="size-4 text-white/30" />
                       )}

@@ -139,7 +139,7 @@ function ClipsPage() {
                 </select>
                 <div className="relative aspect-video bg-black rounded-lg overflow-hidden">
                   {clip.isImage
-                    ? <img src={clip.url} alt={clip.title} className="w-full h-full object-cover" />
+                    ? <img loading="lazy" src={clip.url} alt={clip.title} className="w-full h-full object-cover" />
                     : <AutoplayVideo key={clip.id} ref={ref} src={clip.url} className="w-full h-full object-cover" controls autoPlay={false} loop playsInline preload="metadata" />}
                   <span className="absolute bottom-2 right-2 text-xs px-2 py-1 rounded bg-black/70 text-white">{clip.duration}</span>
                 </div>
@@ -192,7 +192,7 @@ function ClipsPage() {
                   <article key={c.id} className={`rounded-xl overflow-hidden border bg-card transition ${st === "approved" ? "border-emerald-500/60 ring-1 ring-emerald-500/40" : st === "queued" ? "border-amber-500/60" : "border-border"}`}>
                     <div className="relative aspect-video bg-black">
                       {c.isImage
-                        ? <img src={c.url} alt={c.title} className="w-full h-full object-cover" />
+                        ? <img loading="lazy" src={c.url} alt={c.title} className="w-full h-full object-cover" />
                         : <AutoplayVideo src={c.url} className="w-full h-full object-cover" controls autoPlay={false} loop playsInline preload="metadata" />}
                       <span className="absolute bottom-2 right-2 text-xs px-2 py-1 rounded bg-black/70 text-white">{c.duration}</span>
                       {st !== "idle" && (

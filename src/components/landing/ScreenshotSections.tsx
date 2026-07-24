@@ -120,7 +120,7 @@ export function MarketingStudioSection() {
               } bg-gradient-to-b from-white/10 to-black/40`}
             >
               <div className="aspect-[3/4] bg-gradient-to-b from-white/30 to-black/30 relative">
-                <img src={c.src} alt={c.t} className="size-full object-cover mix-blend-luminosity opacity-80" />
+                <img loading="lazy" src={c.src} alt={c.t} className="size-full object-cover mix-blend-luminosity opacity-80" />
               </div>
               <div className="p-3 text-center">
                 <p className={`text-sm ${c.active ? "text-white font-semibold" : "text-white/70"}`}>{c.t}</p>
@@ -218,7 +218,7 @@ export function MotionControlSection() {
                 zIndex: i === 1 ? 10 : 5,
               }}
             >
-              <img src={s} alt="" className="size-full object-cover" />
+              <img loading="lazy" src={s} alt="" className="size-full object-cover" />
             </div>
           ))}
         </div>
@@ -281,7 +281,7 @@ export function AiCanvasSection() {
 
       <div className="relative px-6 md:px-12 py-20 grid md:grid-cols-[1fr_2fr_1fr] gap-6 items-center">
         <div className="hidden md:block rounded-2xl overflow-hidden border-2 border-white/20 aspect-[3/4] -rotate-3">
-          <img src={shot2} alt="" className="size-full object-cover" />
+          <img loading="lazy" src={shot2} alt="" className="size-full object-cover" />
         </div>
 
         <div className="text-center border-2 border-cyan-300/60 rounded-2xl p-8 md:p-12 relative">
@@ -293,7 +293,7 @@ export function AiCanvasSection() {
         </div>
 
         <div className="hidden md:block rounded-2xl overflow-hidden border-2 border-white/20 aspect-[3/4] rotate-3">
-          <img src={shot6} alt="" className="size-full object-cover" />
+          <img loading="lazy" src={shot6} alt="" className="size-full object-cover" />
         </div>
       </div>
 

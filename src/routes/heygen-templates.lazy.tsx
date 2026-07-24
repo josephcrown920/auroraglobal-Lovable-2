@@ -288,7 +288,7 @@ function GeneratePanel({ template }: { template: AuroraTemplateRow }) {
               />
               {photoUrl ? (
                 <div className="flex items-center gap-3 rounded-xl border border-[var(--teal-border)] bg-[var(--teal-dim)] px-3 py-2.5">
-                  <img src={photoUrl} alt="uploaded" className="size-10 rounded-lg object-cover" />
+                  <img loading="lazy" src={photoUrl} alt="uploaded" className="size-10 rounded-lg object-cover" />
                   <span className="flex-1 text-xs text-white/70 truncate">Photo ready</span>
                   <button
                     onClick={() => { setPhotoUrl(null); }}

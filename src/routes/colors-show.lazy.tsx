@@ -192,7 +192,7 @@ function ColorsShowPage() {
                   {uploadingSlot === "selfie" ? (
                     <RefreshCw className="w-7 h-7 text-primary animate-spin" />
                   ) : selfieUrl ? (
-                    <img src={selfieUrl} alt="Selfie" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={selfieUrl} alt="Selfie" className="w-full h-full object-cover" />
                   ) : (
                     <>
                       <Upload className="w-7 h-7 text-white/40" />
@@ -234,7 +234,7 @@ function ColorsShowPage() {
                   {uploadingSlot === "colorRef" ? (
                     <RefreshCw className="w-7 h-7 text-primary animate-spin" />
                   ) : colorRefUrl ? (
-                    <img src={colorRefUrl} alt="Colors reference" className="w-full h-full object-cover" />
+                    <img loading="lazy" src={colorRefUrl} alt="Colors reference" className="w-full h-full object-cover" />
                   ) : (
                     <>
                       <Upload className="w-7 h-7 text-white/40" />
