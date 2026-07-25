@@ -300,7 +300,15 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   usePageViewTracking();
-  useEffect(() => { captureRefFromUrl(); initCrashReporting(); }, []);
+  useEffect(() => {
+    captureRefFromUrl();
+    initCrashReporting();
+    // Fire-and-forget schema check — logs a loud error server-side if the live DB
+    // is missing any expected tables/functions. Never blocks UI.
+    import("@/lib/migration-check.functions")
+      .then((m) => m.checkMigrations())
+      .catch(() => {});
+  }, []);
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
