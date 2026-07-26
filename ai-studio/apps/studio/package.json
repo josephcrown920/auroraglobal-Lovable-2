@@ -1,0 +1,33 @@
+{
+  "name": "@ai-studio/studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "test": "echo 'No tests yet'",
+    "clean": "rm -rf .next"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "next-auth": "^5.0.0-beta.29",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "lucide-react": "^0.536.0",
+    "@ai-studio/core": "workspace:*",
+    "@ai-studio/ui": "workspace:*",
+    "@ai-studio/api": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2"
+  }
+}

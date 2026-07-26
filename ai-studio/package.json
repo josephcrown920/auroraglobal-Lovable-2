@@ -1,0 +1,19 @@
+{
+  "name": "ai-studio",
+  "private": true,
+  "packageManager": "pnpm@11.5.2",
+  "scripts": {
+    "dev": "pnpm --filter @ai-studio/studio --filter @ai-studio/worker --parallel dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean",
+    "studio:dev": "pnpm --filter @ai-studio/studio dev",
+    "worker:dev": "pnpm --filter @ai-studio/worker dev"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.0.12"
+  }
+}

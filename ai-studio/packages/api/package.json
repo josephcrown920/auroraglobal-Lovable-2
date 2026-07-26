@@ -1,0 +1,14 @@
+{
+  "name": "@ai-studio/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "echo 'API package build placeholder'",
+    "lint": "echo 'API package lint placeholder'",
+    "format": "prettier --write src",
+    "test": "echo 'No tests yet'",
+    "clean": "rm -rf dist"
+  }
+}
