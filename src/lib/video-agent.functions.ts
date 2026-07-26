@@ -78,7 +78,9 @@ export const enhanceVideoAgentPrompt = createServerFn({ method: "POST" })
           : " CINEMATIC NARRATION MODE: Write as a confident voiceover narrator — authoritative, evocative, with a sense of place and movement. Use present tense for immediacy. Paint pictures with words."
       }${styleInstruction}\n\nRaw idea or draft:\n${data.prompt}\n\nReturn JSON: {"script": "..."}`,
       schema: ScriptOutputSchema,
-      preferredProvider: data.directorProvider,
+      // Default to Claude for the "director brain" unless the caller explicitly
+      // chooses another provider (or "auto").
+      preferredProvider: data.directorProvider ?? "anthropic",
     });
     const script = sanitizeVideoAgentScript(output.script);
     if (!script) throw new Error("Enhance produced an empty script — try rewording your idea");
@@ -123,6 +125,7 @@ export const analyzeCinematicBrief = createServerFn({ method: "POST" })
       system: CINEMATIC_SYSTEM_PROMPT + "\n\n" + CINEMATIC_ANALYSIS_PROMPT,
       prompt: `User request: ${data.userIdea}${formatHint}\n\nAnalyze this into a complete video plan with brief, direction, and 4–6 shots. Return only valid JSON matching the VideoPlan schema.`,
       schema: VideoPlanSchema,
+      preferredProvider: "anthropic",
     });
     if (output.needs_clarification) {
       throw new Error(output.question ?? "Idea is too vague — add a subject or clear intent");

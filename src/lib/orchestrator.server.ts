@@ -2940,12 +2940,12 @@ export const FALLBACK_MODELS: Record<GenerateKind, string[]> = {
   // in automatic model-fallback and provider-health routing (Task #244) —
   // previously it only worked when explicitly requested by value.
   video: [
+    "seedance-2.0-fast",
+    "seedance-2.0",
     "xai/grok-imagine-video-1.5",
     "fal/ovi",
     "ltx/ltx-video",
     "veo-2",
-    "seedance-2.0-fast",
-    "seedance-2.0",
     "wan-2.5",
     "kling-3.0",
     "kling-3.0-omni",
