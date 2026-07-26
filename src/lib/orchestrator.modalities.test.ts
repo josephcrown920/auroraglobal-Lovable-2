@@ -184,8 +184,8 @@ describe("getCandidateModels", () => {
   it("prepends the requested model and caps per kind", () => {
     expect(getCandidateModels({ kind: "video", prompt: "x", model: "kling-3.0" })).toEqual([
       "kling-3.0",
-      "xai/grok-imagine-video-1.5",
-      "fal/ovi",
+      "seedance-2.0-fast",
+      "seedance-2.0",
     ]);
   });
 
