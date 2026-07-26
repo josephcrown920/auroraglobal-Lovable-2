@@ -81,7 +81,9 @@ export const Route = createFileRoute("/api/video-agent/enhance")({
                 : " CINEMATIC NARRATION MODE: Write as a confident voiceover narrator — authoritative, evocative, with a sense of place and movement. Use present tense for immediacy. Paint pictures with words."
             }${styleInstruction}\n\nRaw idea or draft:\n${data.prompt}\n\nReturn JSON: {"script": "..."}`,
             schema: ScriptOutputSchema,
-            preferredProvider: data.directorProvider,
+            // Claude is the preferred creative planner; fall back to other providers
+            // only if Anthropic is unavailable or times out.
+            preferredProvider: data.directorProvider ?? "anthropic",
           });
 
           const script = sanitizeVideoAgentScript(output.script);

@@ -7,6 +7,8 @@
 import type { VideoModel, ImageModel, AspectRatio, ModelSelection } from "./types";
 
 const VIDEO_COSTS: Record<VideoModel, number> = {
+  "seedance-2.0": 65,
+  "seedance-2.0-fast": 5,
   "kling-2.5": 100,
   "kling-2.5-turbo": 50,
   "kling-2.0": 70,
@@ -38,16 +40,11 @@ export function selectVideoModel(prompt: string, preferred?: string): ModelSelec
   if (LIPSYNC_KEYWORDS.some((k) => l.includes(k))) {
     return { model: "heygen-v2", reason: "Detected lip-sync / speech requirement", estimatedCredits: 80 };
   }
-  if (CINEMATIC_KEYWORDS.some((k) => l.includes(k))) {
-    return { model: "wan-2.1", reason: "Cinematic look on a cheaper default model", estimatedCredits: 30 };
-  }
   if (SPEED_KEYWORDS.some((k) => l.includes(k))) {
-    return { model: "wan-2.1", reason: "Speed / cost optimisation", estimatedCredits: 30 };
+    return { model: "seedance-2.0-fast", reason: "Speed / cost optimisation — Seedance fast tier", estimatedCredits: VIDEO_COSTS["seedance-2.0-fast"] };
   }
-  if (AMBIENT_KEYWORDS.some((k) => l.includes(k))) {
-    return { model: "wan-2.1", reason: "Ambient / looping motion", estimatedCredits: 30 };
-  }
-  return { model: "wan-2.1", reason: "Default low-cost video model", estimatedCredits: 30 };
+  // All other prompts default to Seedance pro for best cinematic quality.
+  return { model: "seedance-2.0", reason: "Seedance — primary cinematic video model", estimatedCredits: VIDEO_COSTS["seedance-2.0"] };
 
 }
 

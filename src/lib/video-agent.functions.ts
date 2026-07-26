@@ -69,6 +69,9 @@ export const enhanceVideoAgentPrompt = createServerFn({ method: "POST" })
     const styleInstruction = style
       ? `\n\nAfter the spoken script, append this style block exactly as written (it is a technical directive to the Video Agent renderer, not speech):\n\n${style.styleBlock}`
       : "";
+    // Claude (Anthropic) is the preferred creative planner for script polish —
+    // it excels at cinematic storytelling, brand voice, and spoken-word cadence.
+    // directorProvider defaults to "anthropic" so Enhance always tries Claude first.
     const { provider, output } = await generateWithFallback({
       system:
         "You are an elite scriptwriter for AI avatar presenter videos, with deep expertise in cinematic storytelling, brand narrative, and spoken-word performance. The presenter reads your output aloud word-for-word — so return ONLY the exact words to be spoken: natural, rhythmic, first-person voice. Apply these craft principles: open with a visceral hook that grabs attention in the first 3 words; build tension or curiosity in the body; land a clear, memorable closing line. Use the natural cadence of spoken English — short declarative sentences land harder than long ones. Vary sentence length for rhythm. Avoid academic or corporate language; speak like a confident human. Never include timestamps, stage directions, camera notes, bracketed cues, production labels like 'Tone:' or 'Background:', bullet points, emojis, hashtags, quotation marks, or negative instructions — all of those would be read aloud on camera. Frame everything positively. Respond in JSON.",
@@ -78,7 +81,9 @@ export const enhanceVideoAgentPrompt = createServerFn({ method: "POST" })
           : " CINEMATIC NARRATION MODE: Write as a confident voiceover narrator — authoritative, evocative, with a sense of place and movement. Use present tense for immediacy. Paint pictures with words."
       }${styleInstruction}\n\nRaw idea or draft:\n${data.prompt}\n\nReturn JSON: {"script": "..."}`,
       schema: ScriptOutputSchema,
-      preferredProvider: data.directorProvider,
+      // Claude is the preferred creative planner; fall back to other providers
+      // only if Anthropic is unavailable or times out.
+      preferredProvider: data.directorProvider ?? "anthropic",
     });
     const script = sanitizeVideoAgentScript(output.script);
     if (!script) throw new Error("Enhance produced an empty script — try rewording your idea");
@@ -119,10 +124,13 @@ export const analyzeCinematicBrief = createServerFn({ method: "POST" })
   .handler(async ({ context, data }): Promise<VideoPlan> => {
     assertCinematicRateLimit(context.userId);
     const formatHint = data.format ? ` Preferred format: ${data.format}.` : "";
+    // Claude is the preferred creative planner for cinematic analysis — it
+    // produces the most director-tier shot breakdowns with accurate film vocabulary.
     const { output } = await generateWithFallback({
       system: CINEMATIC_SYSTEM_PROMPT + "\n\n" + CINEMATIC_ANALYSIS_PROMPT,
       prompt: `User request: ${data.userIdea}${formatHint}\n\nAnalyze this into a complete video plan with brief, direction, and 4–6 shots. Return only valid JSON matching the VideoPlan schema.`,
       schema: VideoPlanSchema,
+      preferredProvider: "anthropic",
     });
     if (output.needs_clarification) {
       throw new Error(output.question ?? "Idea is too vague — add a subject or clear intent");

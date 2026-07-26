@@ -2935,20 +2935,21 @@ export const FALLBACK_MODELS: Record<GenerateKind, string[]> = {
     "infsh/flux",       // inference.sh cloud Flux — keyed, ~$0.005/image
     "pollinations/flux",
   ],
-  // kling-3.0-omni sits after kling-3.0 (its pricier sibling, $0.70 vs $0.60,
-  // both dispatched via the same Replicate provider) so it now participates
-  // in automatic model-fallback and provider-health routing (Task #244) —
-  // previously it only worked when explicitly requested by value.
+  // Seedance is the primary video model (ByteDance-direct via byteplus adapter).
+  // Fallback order: Seedance (fast → pro) → Kling → xAI → fal/ovi → ltx →
+  // Veo → Wan → Sora. kling-3.0-omni sits after kling-3.0 (its pricier sibling,
+  // $0.70 vs $0.60, both dispatched via the same Replicate provider) so it
+  // participates in automatic model-fallback and provider-health routing.
   video: [
+    "seedance-2.0-fast",
+    "seedance-2.0",
+    "kling-3.0",
+    "kling-3.0-omni",
     "xai/grok-imagine-video-1.5",
     "fal/ovi",
     "ltx/ltx-video",
     "veo-2",
-    "seedance-2.0-fast",
-    "seedance-2.0",
     "wan-2.5",
-    "kling-3.0",
-    "kling-3.0-omni",
     "veo-3-fast",
     "sora-2",
     "openai/sora-2-pro",

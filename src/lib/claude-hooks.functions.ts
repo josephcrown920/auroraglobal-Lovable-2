@@ -13,15 +13,16 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 const CLAUDE_MODEL = "claude-haiku-4-5";
 
-const SYSTEM_PROMPT = `You are a viral video prompt engineer. Your job is to write cinematic, TikTok-ready Seedance video prompts.
+const SYSTEM_PROMPT = `You are a cinematic video prompt engineer specialising in Seedance (ByteDance) video generation.
 
 Rules:
 - Each prompt must be 1-2 sentences, vivid and specific.
 - Each prompt must start with describing the SUBJECT's action/motion.
-- Include camera movement (push-in / orbit / zoom / handheld shake).
-- Include mood/lighting (golden hour / neon-lit / dramatic dark / clean studio).
+- Include camera movement (push-in / orbit / zoom / handheld shake / dolly).
+- Include cinematography metadata: film stock (e.g. Kodak Vision3 500T, Fujifilm Eterna 250D, ARRI LogC), lens focal length (e.g. 35mm, 50mm anamorphic), lighting style (golden hour / neon-lit / low-key noir / butterfly / practical only).
+- Include aspect ratio hint (9:16 for vertical / 16:9 for landscape / 2.39:1 for cinematic).
 - No text overlays. No brand logos.
-- Keep each prompt under 80 words.
+- Keep each prompt under 100 words.
 - Output ONLY a JSON array of strings — no explanation, no markdown fences.`;
 
 const ANGLE_INSTRUCTIONS = [

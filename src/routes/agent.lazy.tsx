@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
+import { createLazyFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -91,6 +91,11 @@ import {
   ChevronRight,
   ChevronDown,
   X,
+  LayoutDashboard,
+  Settings,
+  Bot,
+  BookMarked,
+  FolderImage,
   type LucideIcon,
 } from "lucide-react";
 
@@ -943,6 +948,17 @@ function AgentPage() {
 
           {/* tool nav */}
           <nav className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5">
+            <SidebarSection title="Navigate" defaultOpen>
+              <SidebarNavLink icon={LayoutDashboard} label="Dashboard"       to="/dashboard" />
+              <SidebarNavLink icon={Sparkles}        label="Images"          to="/studio" />
+              <SidebarNavLink icon={Video}           label="Videos"          to="/orchestrate" />
+              <SidebarNavLink icon={Mic}             label="Lip Sync"        to="/lipsync" />
+              <SidebarNavLink icon={Move3d}          label="Motion Control"  to="/motion" />
+              <SidebarNavLink icon={BookMarked}      label="Prompt Library"  to="/agent" />
+              <SidebarNavLink icon={FolderImage}     label="References"      to="/gallery" />
+              <SidebarNavLink icon={Bot}             label="AI Providers"    to="/admin" />
+              <SidebarNavLink icon={Settings}        label="Settings"        to="/billing" />
+            </SidebarSection>
             <SidebarSection title="Avatar Videos">
               {AVATAR_TOOLS.map((t) => <SidebarItem key={t.label} icon={t.icon} label={t.label} onClick={() => launch(t.prompt)} />)}
             </SidebarSection>
@@ -1390,6 +1406,20 @@ function SidebarItem({ icon: Icon, label, onClick, accent }: { icon: LucideIcon;
       </span>
       <span className="truncate">{label}</span>
     </button>
+  );
+}
+
+function SidebarNavLink({ icon: Icon, label, to }: { icon: LucideIcon; label: string; to: string }) {
+  return (
+    <Link
+      to={to}
+      className="group flex w-full items-center gap-2 rounded-sm border border-transparent px-3 py-1.5 text-left text-[12px] font-medium text-ink transition-colors hover:border-prime/30 hover:bg-panel-2"
+    >
+      <span className="flex size-5 shrink-0 items-center justify-center rounded-sm border border-line bg-panel-2 text-ink-dim group-hover:text-ink">
+        <Icon className="size-3" />
+      </span>
+      <span className="truncate">{label}</span>
+    </Link>
   );
 }
 

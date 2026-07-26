@@ -5,6 +5,8 @@
 // here for single items; bulk jobs use the existing public.jobs queue.
 
 export type VideoModel =
+  | "seedance-2.0"
+  | "seedance-2.0-fast"
   | "kling-2.5"
   | "kling-2.5-turbo"
   | "kling-2.0"
