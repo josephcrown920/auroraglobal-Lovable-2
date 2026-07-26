@@ -35,6 +35,9 @@ const EnhanceSchema = z.object({
 const ScriptOutputSchema = z.object({
   script: z.string().describe("The complete spoken script, plain text, speech only"),
 });
+// Creative-planning flows default to Claude because this route is optimized for
+// cinematic scripting quality and structured planning reliability.
+const DEFAULT_VIDEO_AGENT_PROVIDER = "anthropic" as const;
 
 // Per-user sliding-window throttle: the enhance pass is free to the user but
 // costs the platform an LLM call, so cap the rate a single account can burn.
@@ -81,9 +84,9 @@ export const enhanceVideoAgentPrompt = createServerFn({ method: "POST" })
           : " CINEMATIC NARRATION MODE: Write as a confident voiceover narrator — authoritative, evocative, with a sense of place and movement. Use present tense for immediacy. Paint pictures with words."
       }${styleInstruction}\n\nRaw idea or draft:\n${data.prompt}\n\nReturn JSON: {"script": "..."}`,
       schema: ScriptOutputSchema,
-      // Claude is the preferred creative planner; fall back to other providers
-      // only if Anthropic is unavailable or times out.
-      preferredProvider: data.directorProvider ?? "anthropic",
+      // Default to Claude for the "director brain" unless the caller explicitly
+      // chooses another provider (or "auto").
+      preferredProvider: data.directorProvider ?? DEFAULT_VIDEO_AGENT_PROVIDER,
     });
     const script = sanitizeVideoAgentScript(output.script);
     if (!script) throw new Error("Enhance produced an empty script — try rewording your idea");
@@ -130,7 +133,7 @@ export const analyzeCinematicBrief = createServerFn({ method: "POST" })
       system: CINEMATIC_SYSTEM_PROMPT + "\n\n" + CINEMATIC_ANALYSIS_PROMPT,
       prompt: `User request: ${data.userIdea}${formatHint}\n\nAnalyze this into a complete video plan with brief, direction, and 4–6 shots. Return only valid JSON matching the VideoPlan schema.`,
       schema: VideoPlanSchema,
-      preferredProvider: "anthropic",
+      preferredProvider: DEFAULT_VIDEO_AGENT_PROVIDER,
     });
     if (output.needs_clarification) {
       throw new Error(output.question ?? "Idea is too vague — add a subject or clear intent");

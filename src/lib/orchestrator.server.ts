@@ -2943,8 +2943,6 @@ export const FALLBACK_MODELS: Record<GenerateKind, string[]> = {
   video: [
     "seedance-2.0-fast",
     "seedance-2.0",
-    "kling-3.0",
-    "kling-3.0-omni",
     "xai/grok-imagine-video-1.5",
     "fal/ovi",
     "ltx/ltx-video",
