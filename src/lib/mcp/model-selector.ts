@@ -43,7 +43,14 @@ export function selectVideoModel(prompt: string, preferred?: string): ModelSelec
   if (SPEED_KEYWORDS.some((k) => l.includes(k))) {
     return { model: "seedance-2.0-fast", reason: "Speed / cost optimisation — Seedance fast tier", estimatedCredits: VIDEO_COSTS["seedance-2.0-fast"] };
   }
-  // All other prompts default to Seedance pro for best cinematic quality.
+  // Cinematic and ambient content routes to Seedance pro for best quality —
+  // Seedance is the primary video model for all non-lipsync, non-speed use-cases.
+  if (CINEMATIC_KEYWORDS.some((k) => l.includes(k))) {
+    return { model: "seedance-2.0", reason: "Cinematic quality — Seedance pro", estimatedCredits: VIDEO_COSTS["seedance-2.0"] };
+  }
+  if (AMBIENT_KEYWORDS.some((k) => l.includes(k))) {
+    return { model: "seedance-2.0", reason: "Ambient / looping motion — Seedance pro", estimatedCredits: VIDEO_COSTS["seedance-2.0"] };
+  }
   return { model: "seedance-2.0", reason: "Seedance — primary cinematic video model", estimatedCredits: VIDEO_COSTS["seedance-2.0"] };
 
 }

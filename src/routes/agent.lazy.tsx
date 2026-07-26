@@ -956,7 +956,7 @@ function AgentPage() {
               <SidebarNavLink icon={Move3d}          label="Motion Control"  to="/motion" />
               <SidebarNavLink icon={BookMarked}      label="Prompt Library"  to="/agent" />
               <SidebarNavLink icon={FolderImage}     label="References"      to="/gallery" />
-              <SidebarNavLink icon={Bot}             label="AI Providers"    to="/admin" />
+              <SidebarNavLink icon={Bot}             label="Admin"           to="/admin" />
               <SidebarNavLink icon={Settings}        label="Settings"        to="/billing" />
             </SidebarSection>
             <SidebarSection title="Avatar Videos">
