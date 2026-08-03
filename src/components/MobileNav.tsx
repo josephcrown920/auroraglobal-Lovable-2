@@ -68,6 +68,7 @@ const VIRAL_FEATURES: Feature[] = [
 
 /** Account & monetization — affiliate promoted to live. */
 const ACCOUNT_FEATURES: Feature[] = [
+  { to: "/dashboard",         label: "Dashboard",      icon: Sparkles },
   { to: "/gallery",           label: "Gallery",        icon: Images },
   { to: "/creator/dashboard", label: "Creator Hub",    icon: TrendingUp },
   { to: "/billing",           label: "Plan & Billing", icon: CreditCard },
@@ -89,7 +90,6 @@ export const ARCHIVED_FEATURES: Feature[] = [
   { to: "/heygen-templates", label: "HeyGen Templates", icon: Film },
   { to: "/growth",           label: "Growth Tools",     icon: Sparkles },
   { to: "/guides",           label: "Viral Guides",     icon: Sparkles },
-  { to: "/dashboard",        label: "Dashboard",        icon: Sparkles },
   { to: "/marketplace",      label: "Marketplace",      icon: Sparkles },
   { to: "/roadmap",          label: "Roadmap",          icon: Sparkles },
   { to: "/workflows",        label: "Workflows",        icon: Sparkles },
