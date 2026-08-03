@@ -1,0 +1,29 @@
+{
+  "name": "aurora-studio",
+  "version": "1.0.0",
+  "description": "Aurora Studio CLI — generate cinematic shots from your terminal",
+  "type": "module",
+  "bin": {
+    "aurora": "./bin/aurora.mjs"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josephcrown920/auroraglobal-Lovable-2.git",
+    "directory": "cli"
+  },
+  "keywords": [
+    "aurora",
+    "ai",
+    "image-generation",
+    "cli"
+  ]
+}
