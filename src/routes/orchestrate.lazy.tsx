@@ -88,8 +88,9 @@ const MODELS: Record<Modality, ModelOption[]> = {
   video: [
     { key: "auto", label: "Auto · best available" },
     { key: VIDEO_AGENT_MODEL_KEY, label: "HeyGen · Video Agent" },
-    { key: "xai/grok-imagine-video-1.5", label: "xAI · Grok Imagine" },
     { key: "seedance-2.0-fast", label: "Replicate · Seedance Lite" },
+    { key: "seedance-2.0", label: "Replicate · Seedance 2.0" },
+    { key: "xai/grok-imagine-video-1.5", label: "xAI · Grok Imagine" },
     { key: "kling-3.0", label: "Replicate · Kling v2.1" },
     { key: "piapi/kling-video", label: "PiAPI · Kling" },
     { key: "runway/gen4-turbo", label: "Runway · Gen-4 Turbo" },
